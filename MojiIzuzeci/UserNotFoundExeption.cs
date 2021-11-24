@@ -8,9 +8,17 @@ namespace SR22_2020_POP2021.MojiIzuzeci
 {
     public class UserNotFoundExeption : Exception
     {
-        public UserNotFoundExeption() : base() { }
-        public UserNotFoundExeption(String message) : base(message) { }
-        public UserNotFoundExeption(String message, Exception innerExeption) : base(message, innerException) { }
+        public UserNotFoundExeption() : base()
+        {
 
+        }
+        public UserNotFoundExeption(string message): base(message)
+        {
+
+        }
+        public UserNotFoundExeption(string message, Exception innerExeption): base(message, innerExeption)
+        {
+
+        }
     }
 }

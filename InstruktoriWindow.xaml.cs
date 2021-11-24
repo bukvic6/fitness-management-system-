@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace SR22_2020_POP2021
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for InstruktoriWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InstruktoriWindow : Window
     {
-        public MainWindow()
+        public InstruktoriWindow()
         {
             InitializeComponent();
-        }
-        private void btnStart_Click(object sender, RoutedEventArgs e)
-        {
-            InstruktoriWindow instruktoriWindow = new InstruktoriWindow();
-            this.Hide();
-            instruktoriWindow.Show();
         }
     }
 }
