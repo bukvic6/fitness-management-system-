@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\IInstruktorService.cs" />
+    <Compile Include="Services\InstruktorService.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +71,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Adresa.cs" />
+    <Compile Include="Model\EPol.cs" />
+    <Compile Include="Model\ETipKorisnika.cs" />
+    <Compile Include="Model\Instruktor.cs" />
+    <Compile Include="Model\RegistrovaniKorisnik.cs" />
+    <Compile Include="MojiIzuzeci\UserNotFoundExeption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\korisnici.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\instruktori.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
