@@ -16,12 +16,18 @@ namespace SR22_2020_POP2021.Services
             throw new NotImplementedException();
         }
 
-        public void ReadUsers(string filename)
+        public void SaveUsers(string filename)
         {
-            throw new NotImplementedException();
+            using(StreamWriter file = new StreamWriter("@../../Resources/" + filename))
+            {
+                foreach(RegistrovaniKorisnik registrovaniKorisnik in Util.Instance.Korisnici)
+                {
+                    file.WriteLine(registrovaniKorisnik.KorisnikZaUpisUFajl());
+                }
+            }
         }
 
-        public void SaveUsers(string filename)
+        public void ReadUsers(string filename)
         {
             Util.Instance.Korisnici = new ObservableCollection<RegistrovaniKorisnik>();
             using (StreamReader file = new StreamReader(@"../../Resources/" + filename))

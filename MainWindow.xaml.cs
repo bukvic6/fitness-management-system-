@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SR22_2020_POP2021.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace SR22_2020_POP2021
     {
         public MainWindow()
         {
+            Util.Instance.CitanjeEntiteta("korisnici.txt");
             InitializeComponent();
         }
         private void btnStart_Click(object sender, RoutedEventArgs e)

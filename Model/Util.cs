@@ -78,6 +78,14 @@ namespace SR22_2020_POP2021.Model
                 userService.SaveUsers(filename);
             }
         }
+        public void CitanjeEntiteta(string filename)
+        {
+            if (filename.Contains("korisnici"))
+            {
+                userService.ReadUsers(filename);
+            }
+            
+        }
 
 
 
