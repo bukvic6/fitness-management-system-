@@ -26,7 +26,6 @@ namespace SR22_2020_POP2021
         {
             InitializeComponent();
             UpdateView();
-           
         }
         private void UpdateView()
         {

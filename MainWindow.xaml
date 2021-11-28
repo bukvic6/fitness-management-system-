@@ -8,7 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Label Name="lblWelcome" Content="Dobro dosli"/>
-        <Button Name ="btnStart" Content="Pocetak" Height="100" Width="200" Click="btnStart_Click"></Button>
+        <Button Name ="btnStart" Content="Pocetak" Height="100" Width="200" Click="btnStart_Click" Margin="297,87,296.6,233"></Button>
+        <Button Name ="btnRegistracija" Content="Registracija" Height="100" Width="200" Click="btnRegistracija_Click" Margin="297,260,296.6,60"></Button>
 
     </Grid>
 </Window>

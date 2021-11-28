@@ -31,5 +31,13 @@ namespace SR22_2020_POP2021
             this.Hide();
             instruktoriWindow.Show();
         }
+
+        private void btnRegistracija_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrationWindow1 registrationWindow = new RegistrationWindow1();
+            this.Hide();
+            registrationWindow.Show();
+                
+        }
     }
 }
