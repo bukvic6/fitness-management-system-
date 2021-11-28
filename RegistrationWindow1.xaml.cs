@@ -20,6 +20,7 @@ namespace SR22_2020_POP2021
     /// </summary>
     public partial class RegistrationWindow1 : Window
     {
+        
         public RegistrationWindow1()
         {
             InitializeComponent();
@@ -36,6 +37,21 @@ namespace SR22_2020_POP2021
             string value = selektovaniItem.Content.ToString();
             Enum.TryParse(value, out EPol pol);
 
+            RegistrovaniKorisnik k = new RegistrovaniKorisnik
+            {
+                Ime = txtIme.Text,
+                Prezime = txtPrezime.Text,
+                JMBG = txtJMBG.Text,
+                Email = txtEmail.Text,
+                TipKorisnika = ETipKorisnika.ADMINISTRATOR,
+                Aktivan = true,
+                Lozinka = txtPassword.Text,
+                Pol = pol,
+            };
+            Util.Instance.Korisnici.Add(k);
+            Util.Instance.SacuvajEntitet("korisnici.txt");
+            this.Close();
+
             
 
         }
@@ -44,5 +60,7 @@ namespace SR22_2020_POP2021
         {
 
         }
+
+   
     }
 }

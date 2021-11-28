@@ -18,7 +18,7 @@ namespace SR22_2020_POP2021.Services
 
         public void SaveUsers(string filename)
         {
-            using(StreamWriter file = new StreamWriter("@../../Resources/" + filename))
+            using(StreamWriter file = new StreamWriter(@"../../Resources/" + filename))
             {
                 foreach(RegistrovaniKorisnik registrovaniKorisnik in Util.Instance.Korisnici)
                 {

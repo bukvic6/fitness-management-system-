@@ -32,6 +32,8 @@
         <TextBox Name="txtGrad" HorizontalAlignment="Left" Height="23" Margin="321,442,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox Name="txtUlica" HorizontalAlignment="Left" Height="23" Margin="321,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox Name="txtBroj" HorizontalAlignment="Left" Height="23" Margin="321,561,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox Name="txtJMBG" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="321,593,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
         <ComboBox Name="cmbPol" HorizontalAlignment="Left" Margin="321,621,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbPol_SelectionChanged" Grid.ColumnSpan="2">
             <ComboBoxItem Content="MUSKI"/>
             <ComboBoxItem Content="ZENSKI"/>
@@ -39,6 +41,7 @@
         </ComboBox>
         <Button Name="btnSacuvaj" Content="Sacuvaj" Click="btnSacuvaj_Click" HorizontalAlignment="Left" Margin="62.6,621,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
         <Button Name="btnOdustani" Content="Odustani" Click="btnOdustani_Click" HorizontalAlignment="Left" Margin="62.6,561,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
+
 
 
 
