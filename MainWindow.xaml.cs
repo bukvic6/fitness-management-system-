@@ -23,21 +23,30 @@ namespace SR22_2020_POP2021
         public MainWindow()
         {
             Util.Instance.CitanjeEntiteta("korisnici.txt");
+            Util.Instance.CitanjeEntiteta("instruktori.txt");
             InitializeComponent();
         }
-        private void btnStart_Click(object sender, RoutedEventArgs e)
+        private void BtnFitnesCentar_Click(object sender, RoutedEventArgs e)
         {
-            InstruktoriWindow instruktoriWindow = new InstruktoriWindow();
+            NeregistrovaniWindow neregistrovaniWindow = new NeregistrovaniWindow();
             this.Hide();
-            instruktoriWindow.Show();
+            neregistrovaniWindow.Show();
         }
 
-        private void btnRegistracija_Click(object sender, RoutedEventArgs e)
+        private void BtnRegistracija_Click(object sender, RoutedEventArgs e)
         {
             RegistrationWindow1 registrationWindow = new RegistrationWindow1();
             this.Hide();
             registrationWindow.Show();
                 
+        }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            this.Hide();
+            loginWindow.Show();
+
         }
     }
 }

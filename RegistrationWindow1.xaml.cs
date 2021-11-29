@@ -26,12 +26,12 @@ namespace SR22_2020_POP2021
             InitializeComponent();
         }
 
-        private void cmbPol_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CmbPol_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
+        private void BtnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
             ComboBoxItem selektovaniItem = (ComboBoxItem)cmbPol.SelectedItem;
             string value = selektovaniItem.Content.ToString();
@@ -56,7 +56,7 @@ namespace SR22_2020_POP2021
 
         }
 
-        private void btnOdustani_Click(object sender, RoutedEventArgs e)
+        private void BtnOdustani_Click(object sender, RoutedEventArgs e)
         {
 
         }
