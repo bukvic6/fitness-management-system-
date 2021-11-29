@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="NeregistrovaniWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Fitnes centar-ZABKO" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="314,55,0,0"/>
+        <Label Content="Fitnes centar-ZABKO" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="341,55,0,0"/>
         <DataGrid CanUserAddRows="False" Name="DGInstruktori" AutoGeneratingColumn ="DGInstruktori_AutoGeneratingColumn" HorizontalAlignment="Left" Height="81" Margin="83,171,0,0" VerticalAlignment="Top" Width="636"/>
-        <TextBox PreviewKeyUp="txtPretraga_PreviewKeyUp" HorizontalAlignment="Left" Name="txtPretraga" Height="25" TextWrapping="Wrap" Text="" Width="120" Margin="315,303,0,92"/>
+        <TextBox PreviewKeyUp="txtPretraga_PreviewKeyUp" HorizontalAlignment="Left" Name="txtPretraga" Height="25" TextWrapping="Wrap" Text="" Width="120" Margin="415,275,0,120"/>
+        <Label Content="Intruktori" HorizontalAlignment="Left" Margin="371,148,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pretraga instruktora:" HorizontalAlignment="Left" Margin="241,271,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>
