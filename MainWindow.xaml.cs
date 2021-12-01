@@ -29,7 +29,6 @@ namespace SR22_2020_POP2021
         private void BtnFitnesCentar_Click(object sender, RoutedEventArgs e)
         {
             NeregistrovaniWindow neregistrovaniWindow = new NeregistrovaniWindow();
-            this.Hide();
             neregistrovaniWindow.Show();
         }
 
