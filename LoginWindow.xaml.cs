@@ -53,6 +53,12 @@ namespace SR22_2020_POP2021
                     {
                         MessageBox.Show("Instruktor");
                         break;
+                    }
+                    else if (txtJMBG.Text.Trim() == JMBG && txtLozinka.Password.ToString() == Lozinka && TipKorisnika == ETipKorisnika.ADMINISTRATOR.ToString())
+                    {
+                        AdminWindow adminWindow = new AdminWindow();
+                        this.Hide();
+                        adminWindow.Show();
 
                     }
                 }
