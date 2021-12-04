@@ -1,4 +1,5 @@
 ﻿using SR22_2020_POP2021.Model;
+using SR22_2020_POP2021.MojiIzuzeci;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +14,13 @@ namespace SR22_2020_POP2021.Services
     {
         public void DeleteUser(string email)
         {
-            throw new NotImplementedException();
+            RegistrovaniKorisnik registrovaniKorisnik = Util.Instance.Korisnici.ToList().Find(korisnik => korisnik.Email.Equals(email));
+            if (registrovaniKorisnik == null)
+            {
+                throw new UserNotFoundExeption($"Ne postoji korisnik sa tim emailom");
+            }
+            registrovaniKorisnik.Aktivan = false;
+            Console.WriteLine("Usmesno obrisan korisnik sa emailom: " + email);
         }
 
         public void SaveUsers(string filename)
