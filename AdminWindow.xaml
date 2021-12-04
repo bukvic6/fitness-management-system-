@@ -9,7 +9,7 @@
     <Grid>
         <Button Content="Dodavanje" Click="Dodavanje_Click" HorizontalAlignment="Left" Margin="156,75,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Izmena" Click="Izmena_Click" HorizontalAlignment="Left" Margin="315,73,0,0" VerticalAlignment="Top" Width="75"/>
-        <DataGrid Name="DGInstruktori" AutoGeneratingColumn="DGInstruktori_AutoGeneratingColumn" HorizontalAlignment="Left" Height="151" Margin="132,130,0,0" VerticalAlignment="Top" Width="576"/>
+        <DataGrid Name="DGInstruktori" AutoGeneratingColumn="DGInstruktori_AutoGeneratingColumn" HorizontalAlignment="Left" Height="151" Margin="132,130,0,0" VerticalAlignment="Top" Width="576" />
 
 
 

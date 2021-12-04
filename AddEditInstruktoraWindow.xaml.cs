@@ -20,13 +20,17 @@ namespace SR22_2020_POP2021
     /// </summary>
     public partial class AddEditInstruktoraWindow : Window
     {
-        private RegistrovaniKorisnik odabraniInstruktor;
         private EStatus odabraniStatus;
-        public AddEditInstruktoraWindow(RegistrovaniKorisnik instruktor,EStatus status = EStatus.DODAJ)
+        private RegistrovaniKorisnik odabraniInstruktor;
+        
+        public AddEditInstruktoraWindow(RegistrovaniKorisnik instruktor, EStatus status = EStatus.DODAJ)
         {
             InitializeComponent();
 
             this.DataContext = instruktor;
+
+            ComboTip.ItemsSource = Enum.GetValues(typeof(ETipKorisnika)).Cast<ETipKorisnika>();
+            ComboPol.ItemsSource = Enum.GetValues(typeof(EPol)).Cast<EPol>();
             
             odabraniInstruktor = instruktor;
             odabraniStatus = status;
@@ -48,10 +52,9 @@ namespace SR22_2020_POP2021
 
         }
 
-        private void btnOk_Click(object sender, RoutedEventArgs e)
+        private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            if (odabraniInstruktor.Equals(EStatus.DODAJ))
-            {
+
                 odabraniInstruktor.Aktivan = true;
                 Instruktor instruktor = new Instruktor
                 {
@@ -59,12 +62,16 @@ namespace SR22_2020_POP2021
                 };
                 Util.Instance.Korisnici.Add(odabraniInstruktor);
                 Util.Instance.Instruktori.Add(instruktor);
-            }
+                
+            
             Util.Instance.SacuvajEntitet("korisnici.txt");
+            Util.Instance.SacuvajEntitet("instruktori.txt");
 
             this.DialogResult = true;
             this.Close();
 
         }
+
+
     }
 }

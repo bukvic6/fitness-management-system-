@@ -18,25 +18,31 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Label Name="lvlIme" Content="Ime" Grid.Row="0" Grid.Column="0"/>
-        <TextBox Name="txtIme" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Ime, ValidatesOnDataErrors=True}"/>
+        <TextBox Name="txtIme" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Ime}"/>
         <!--<TextBlock Text="{Binding ElementName=txtIme, Path=(Validation.Errors}[}}" Foreground="red"/>-->
 
         <Label Name="lblPrezime" Content="Prezime" Grid.Row="1" Grid.Column="0"/>
         <TextBox Name="txtPrezime" Grid.Row="1" Grid.Column="1" Text="{Binding Path=Prezime}"/>
 
         <Label Name="lblJmbg" Content="JMBG" Grid.Row="2" Grid.Column="0"/>
-        <TextBox Name="txtJmbg" Grid.Row="2" Grid.Column="1" Text="{Binding Path=JMBG, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}"/>
+        <TextBox Name="txtJmbg" Grid.Row="2" Grid.Column="1" Text="{Binding Path=JMBG}"/>
 
         <Label Name="lblEmail" Content="Email" Grid.Row="3" Grid.Column="0"/>
         <TextBox Name="txtEmail" Grid.Row="3" Grid.Column="1" Text="{Binding Path=Email}"/>
-
+        
         <Label Name="lblTip" Content="Tip" Grid.Row="4" Grid.Column="0"/>
-        <TextBox Name="txtTip" Grid.Row="4" Grid.Column="1" Text="{Binding Path=TipKorisnika}"/>
-        <Button Name="btnCancel" Click="btnCancel_Click" Content="Cancel" Grid.Row="5" Grid.Column="0"/>
-        <Button Name="btnOk" Click="btnOk_Click" Content="OK" Grid.Row="5" Grid.Column="1"/>
+        <ComboBox Grid.Column="1" Grid.Row="4" Name="ComboTip" SelectedItem="{Binding Path=TipKorisnika}"/>
+
+
+        <Label Name="lblPol" Content="Pol" Grid.Row="5" Grid.Column="0"/>
+        <ComboBox Grid.Column="1" Grid.Row="5" Name="ComboPol" SelectedItem="{Binding Path=Pol}" />
+        
+        <Button Name="btnCancel" Click="btnCancel_Click" Content="Cancel" Grid.Row="6" Grid.Column="0"/>
+        <Button Name="btnOk" Click="BtnOk_Click" Content="OK" Grid.Row="6" Grid.Column="1"/>
 
 
 

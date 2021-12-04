@@ -3,3 +3,4 @@ Marko;Markic;marko@gmail.com;mare;32323314;MUSKI;INSTRUKTOR;True
 Cube;Cubic;cuba@gmail.com;cuba;8978382638;MUSKI;INSTRUKTOR;True
 Dana;Danic;dana@gmail.com;dana;313323;ZENSKI;INSTRUKTOR;True
 Milan;Milanic;milan@gmail.com;milan;1234443;MUSKI;INSTRUKTOR;True
+ccc;vvv;xxx;;xxx;MUSKI;INSTRUKTOR;True

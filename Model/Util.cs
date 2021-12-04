@@ -12,10 +12,12 @@ namespace SR22_2020_POP2021.Model
     {
         private static readonly Util instance = new Util();
         private IUserService userService;
+        private IInstruktorService instruktorService;
 
         private Util()
         {
             userService = new UserService();
+            instruktorService = new InstruktorService();
         }
 
         static Util() { }
@@ -77,12 +79,20 @@ namespace SR22_2020_POP2021.Model
             {
                 userService.SaveUsers(filename);
             }
+            else if (filename.Contains("instruktori"))
+            {
+                instruktorService.SaveUsers(filename);
+            }
         }
         public void CitanjeEntiteta(string filename)
         {
             if (filename.Contains("korisnici"))
             {
                 userService.ReadUsers(filename);
+            }
+            else if (filename.Contains("instruktori"))
+            {
+                instruktorService.ReadUsers(filename);
             }
             
         }

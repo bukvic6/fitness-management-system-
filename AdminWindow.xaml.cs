@@ -37,7 +37,8 @@ namespace SR22_2020_POP2021
             DGInstruktori.IsSynchronizedWithCurrentItem = true;
 
             DGInstruktori.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
-            DGInstruktori.SelectedItems.Clear();
+            view.Refresh();
+            
 
         }
         private bool CustomFilter(Object obj)
@@ -66,13 +67,16 @@ namespace SR22_2020_POP2021
 
             }
             this.Show();
+            view.Refresh();
 
         }
 
-
         private void DGInstruktori_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
+            if (e.PropertyName.Equals("Aktivan"))
+            {
 
+            }
 
         }
     }
