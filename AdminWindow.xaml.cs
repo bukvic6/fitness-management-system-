@@ -54,6 +54,18 @@ namespace SR22_2020_POP2021
 
         private void Izmena_Click(object sender, RoutedEventArgs e)
         {
+            RegistrovaniKorisnik selektedInstruktor = view.CurrentItem as RegistrovaniKorisnik;
+
+            RegistrovaniKorisnik stariInstruktor = selektedInstruktor.Clone();
+
+            AddEditInstruktoraWindow addEditInstruktoraWindow = new AddEditInstruktoraWindow(selektedInstruktor, EStatus.IZMENI);
+            this.Hide();
+            if (!(bool)addEditInstruktoraWindow.ShowDialog()){
+                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(stariInstruktor.Email));
+                Util.Instance.Korisnici[index] = stariInstruktor;
+            }
+            this.Show();
+            view.Refresh();
 
         }
 

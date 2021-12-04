@@ -54,7 +54,8 @@ namespace SR22_2020_POP2021
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-
+            if (odabraniStatus.Equals(EStatus.DODAJ))
+            {
                 odabraniInstruktor.Aktivan = true;
                 Instruktor instruktor = new Instruktor
                 {
@@ -62,8 +63,8 @@ namespace SR22_2020_POP2021
                 };
                 Util.Instance.Korisnici.Add(odabraniInstruktor);
                 Util.Instance.Instruktori.Add(instruktor);
-                
-            
+
+            }
             Util.Instance.SacuvajEntitet("korisnici.txt");
             Util.Instance.SacuvajEntitet("instruktori.txt");
 
