@@ -1,9 +1,7 @@
 Pera;Peric;pera@gmail.com;peki;123123;MUSKI;ADMINISTRATOR;True
-Marko;Markic;marko@gmail.com;mare;323jjjjjj;MUSKI;INSTRUKTOR;True
+Marko;Markic;marko@gmail.com;mare;323jj;MUSKI;INSTRUKTOR;True
 Cube;Cubic;cuba@gmail.com;cuba;8978382638;MUSKI;INSTRUKTOR;True
-Dana;Daniciiiii;dana@gmail.com;dana;313323;ZENSKI;INSTRUKTOR;True
-Cubaaaccvve;Cubcccsssic;cuba@gmail.com;cuba;8978382638;MUSKI;POLAZNIK;True
-vvvvv;Cubccjjcic;cuba@gmail.com;cuba;8978382638;MUSKI;POLAZNIK;True
-Micke;Milanic;milan@gmail.com;milan;1234443;MUSKI;INSTRUKTOR;True
-
-
+Dana;Danicii;dana@gmail.com;dana;313323;ZENSKI;INSTRUKTOR;True
+Cube;Cubcc;cuba@gmail.com;cuba;8978382638;MUSKI;POLAZNIK;True
+vvv;Cub;cuba@gmail.com;cuba;8978382638;MUSKI;POLAZNIK;True
+Mickomacak;Milanic;milan@gmail.com;milan;1234443;MUSKI;INSTRUKTOR;True

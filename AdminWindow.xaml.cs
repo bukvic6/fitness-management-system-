@@ -27,7 +27,7 @@ namespace SR22_2020_POP2021
         public AdminWindow()
         {
             InitializeComponent();
-            UpdateView(); 
+            UpdateView();
             UpdateView2();
         }
         private void UpdateView()
@@ -36,12 +36,13 @@ namespace SR22_2020_POP2021
             //https://stackoverflow.com/questions/2160481/wpf-collectionviewsource-multiple-views
             //resenje za problem instanciranja grida
             view = new CollectionViewSource { Source = Util.Instance.Korisnici }.View;
-            view.Filter = CustomFilter;
-            view.Refresh();
+            DGInstruktori.ItemsSource = view;
             DGInstruktori.IsSynchronizedWithCurrentItem = true;
             DGInstruktori.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
-            DGInstruktori.ItemsSource = view;
-            
+           
+            view.Filter = CustomFilter;
+            view.Refresh();
+
 
         }
         private void UpdateView2()
@@ -133,10 +134,6 @@ namespace SR22_2020_POP2021
 
         }
 
-        private void DodavanjePolaznika_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void IzmenaP_Click(object sender, RoutedEventArgs e)
         {
@@ -154,6 +151,7 @@ namespace SR22_2020_POP2021
             {
 
             }
+
 
 
         }

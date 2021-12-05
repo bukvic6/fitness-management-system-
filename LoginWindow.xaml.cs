@@ -24,6 +24,7 @@ namespace SR22_2020_POP2021
         public LoginWindow()
         {
             Util.Instance.CitanjeEntiteta("korisnici.txt");
+            Util.Instance.CitanjeEntiteta("instruktori.txt");
             InitializeComponent();
         }
 
