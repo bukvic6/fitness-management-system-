@@ -44,34 +44,7 @@ namespace SR22_2020_POP2021.Model
                 Broj = "22",
                 ID = "1"
             };
-            RegistrovaniKorisnik korisnik1 = new RegistrovaniKorisnik();
-            korisnik1.Ime = "Pera";
-            korisnik1.Prezime = "Peric";
-            korisnik1.Email = "pera@gmail.com";
-            korisnik1.JMBG = "121344";
-            korisnik1.Lozinka = "peki";
-            korisnik1.Pol = EPol.MUSKI;
-            korisnik1.TipKorisnika = ETipKorisnika.ADMINISTRATOR;
-            korisnik1.Aktivan = true;
-
-            RegistrovaniKorisnik korisnik2 = new RegistrovaniKorisnik
-            {
-                Email = "mika@gmail.com",
-                Ime = "mika",
-                Prezime = "Mikic",
-                JMBG = "132323",
-                Lozinka = "zika",
-                Pol = EPol.MUSKI,
-                TipKorisnika = ETipKorisnika.INSTRUKTOR,
-                Aktivan = true
-            };
-            Instruktor korisnik4 = new Instruktor
-            {
-                Korisnik = korisnik2,
-            };
-            Korisnici.Add(korisnik1);
-            Korisnici.Add(korisnik2);
-            Instruktori.Add(korisnik4);
+            
         }
         public void SacuvajEntitet(string filename)
         {

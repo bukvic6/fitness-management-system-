@@ -5,12 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SR22_2020_POP2021"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="AdminWindow" Height="550" Width="800">
     <Grid>
-        <Button Content="Dodavanje" Click="Dodavanje_Click" HorizontalAlignment="Left" Margin="156,75,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Izmena" Click="Izmena_Click" HorizontalAlignment="Left" Margin="315,73,0,0" VerticalAlignment="Top" Width="75"/>
-        <DataGrid Name="DGInstruktori" AutoGeneratingColumn="DGInstruktori_AutoGeneratingColumn" HorizontalAlignment="Left" Height="151" Margin="132,130,0,0" VerticalAlignment="Top" Width="576" />
-        <Button Content="Brisanje" Click="Brisanje_Click" HorizontalAlignment="Left" Margin="492,71,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Dodavanje" Click="Dodavanje_Click" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Izmena" Click="Izmena_Click" HorizontalAlignment="Left" Margin="262,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <DataGrid Name="DGInstruktori" AutoGeneratingColumn="DGInstruktori_AutoGeneratingColumn" HorizontalAlignment="Left" Height="151" Margin="135,36,0,0" VerticalAlignment="Top" Width="576" />
+        <Button Content="Brisanje" Click="Brisanje_Click" HorizontalAlignment="Left" Margin="347,10,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <Button Content="Dodavanje Polaznika" Click="DodavanjePolaznika_Click" HorizontalAlignment="Left" Margin="217,227,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Izmena Polaznika" Click="IzmenaP_Click" HorizontalAlignment="Left" Margin="367,222,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Brisanje Polaznika" Click="BrisanjeP_Click" HorizontalAlignment="Left" Margin="576,216,0,0" VerticalAlignment="Top" Width="75"/>
+        <DataGrid Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Left" Height="100" Margin="131,303,0,0" VerticalAlignment="Top" Width="583"/>
+
+
 
 
 

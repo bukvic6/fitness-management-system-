@@ -22,25 +22,53 @@ namespace SR22_2020_POP2021
     public partial class AdminWindow : Window
     {
         private ICollectionView view;
+        private ICollectionView view2;
 
         public AdminWindow()
         {
             InitializeComponent();
-            UpdateView();
-            view.Filter = CustomFilter;
+            UpdateView(); 
+            UpdateView2();
         }
         private void UpdateView()
         {
             DGInstruktori.ItemsSource = null;
-            view = CollectionViewSource.GetDefaultView(Util.Instance.Korisnici);
-            DGInstruktori.ItemsSource = view;
-            DGInstruktori.IsSynchronizedWithCurrentItem = true;
-
-            DGInstruktori.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            //https://stackoverflow.com/questions/2160481/wpf-collectionviewsource-multiple-views
+            //resenje za problem instanciranja grida
+            view = new CollectionViewSource { Source = Util.Instance.Korisnici }.View;
+            view.Filter = CustomFilter;
             view.Refresh();
+            DGInstruktori.IsSynchronizedWithCurrentItem = true;
+            DGInstruktori.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            DGInstruktori.ItemsSource = view;
             
 
         }
+        private void UpdateView2()
+        {
+            DGPolaznici.ItemsSource = null;
+            view2 = new CollectionViewSource { Source = Util.Instance.Korisnici }.View;
+            view2.Filter = CustomFilter2;
+            view2.Refresh();
+            DGPolaznici.IsSynchronizedWithCurrentItem = true;
+            DGPolaznici.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            DGPolaznici.ItemsSource = view2;
+            
+
+
+        }
+        private bool CustomFilter2(Object obj)
+        {
+            RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
+
+            if (korisnik.TipKorisnika.Equals(ETipKorisnika.POLAZNIK) && korisnik.Aktivan)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         private bool CustomFilter(Object obj)
         {
             RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
@@ -102,6 +130,31 @@ namespace SR22_2020_POP2021
 
             UpdateView();
             view.Refresh();
+
+        }
+
+        private void DodavanjePolaznika_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void IzmenaP_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+  
+        private void BrisanjeP_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DGPolaznici_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName.Equals("Aktivan"))
+            {
+
+            }
+
 
         }
     }

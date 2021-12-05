@@ -80,7 +80,9 @@
     </Compile>
     <Compile Include="Services\IInstruktorService.cs" />
     <Compile Include="Services\InstruktorService.cs" />
+    <Compile Include="Services\IPolaznikService.cs" />
     <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\PolaznikService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

@@ -15,5 +15,13 @@ namespace SR22_2020_POP2021.Model
             get { return _korisnik; }
             set { _korisnik = value; }
         }
+        public override string ToString()
+        {
+            return "Ja sam Polaznika " + _korisnik.Ime + "a moj mejl je " + _korisnik.Email;
+        }
+        public string PolaznikZaUpisUFajl()
+        {
+            return Korisnik.Email;
+        }
     }
 }
