@@ -48,7 +48,7 @@ namespace SR22_2020_POP2021
 
                     string Lozinka = korisnikIzFajla[3];
                     string JMBG = korisnikIzFajla[4];
-                    string TipKorisnika = korisnikIzFajla[6];
+                    string TipKorisnika = korisnikIzFajla[7];
 
                     if (txtJMBG.Text.Trim() == JMBG && txtLozinka.Password.ToString() == Lozinka && TipKorisnika == ETipKorisnika.INSTRUKTOR.ToString())
                     {

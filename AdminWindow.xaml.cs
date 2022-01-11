@@ -97,6 +97,19 @@ namespace SR22_2020_POP2021
             view.Refresh();
 
         }
+        
+        private void Brisanje_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrovaniKorisnik instruktorZaBrisanje = view.CurrentItem as RegistrovaniKorisnik;
+            Util.Instance.BrisanjeKorisnika(instruktorZaBrisanje.Email);
+
+            int index = Util.Instance.Korisnici.ToList().FindIndex(korisnik => korisnik.Email.Equals(instruktorZaBrisanje.Email));
+            Util.Instance.Korisnici[index].Aktivan = false;
+
+            UpdateView();
+            view.Refresh();
+
+        }
 
         private void Dodavanje_Click(object sender, RoutedEventArgs e)
         {
@@ -121,18 +134,6 @@ namespace SR22_2020_POP2021
 
         }
 
-        private void Brisanje_Click(object sender, RoutedEventArgs e)
-        {
-            RegistrovaniKorisnik instruktorZaBrisanje = view.CurrentItem as RegistrovaniKorisnik;
-            Util.Instance.BrisanjeKorisnika(instruktorZaBrisanje.Email);
-
-            int index = Util.Instance.Korisnici.ToList().FindIndex(korisnik => korisnik.Email.Equals(instruktorZaBrisanje.Email));
-            Util.Instance.Korisnici[index].Aktivan = false;
-
-            UpdateView();
-            view.Refresh();
-
-        }
 
 
         private void IzmenaP_Click(object sender, RoutedEventArgs e)

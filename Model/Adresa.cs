@@ -49,7 +49,7 @@ namespace SR22_2020_POP2021.Model
 
         public override string ToString()
         {
-            return "Ulica: " + Ulica + "broj " + Broj + "grad " + Grad + "Drzava " + Drzava;
+            return Ulica + "," + Broj+ "," +Grad+ "," +Drzava;
         }
 
 

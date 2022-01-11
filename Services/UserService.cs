@@ -20,7 +20,8 @@ namespace SR22_2020_POP2021.Services
                 throw new UserNotFoundExeption($"Ne postoji korisnik sa tim emailom");
             }
             registrovaniKorisnik.Aktivan = false;
-            Console.WriteLine("Usmesno obrisan korisnik sa emailom: " + email);
+            Util.Instance.SacuvajEntitet("korisnici.txt");
+            
         }
 
         public void SaveUsers(string filename)
@@ -45,9 +46,9 @@ namespace SR22_2020_POP2021.Services
                 {
                     string[] korisnikIzFajla = line.Split(';');
 
-                    Enum.TryParse(korisnikIzFajla[5], out EPol pol);
-                    Enum.TryParse(korisnikIzFajla[6], out ETipKorisnika tip);
-                    Boolean.TryParse(korisnikIzFajla[7], out Boolean status);
+                    Enum.TryParse(korisnikIzFajla[6], out EPol pol);
+                    Enum.TryParse(korisnikIzFajla[7], out ETipKorisnika tip);
+                    Boolean.TryParse(korisnikIzFajla[8], out Boolean status);
                     RegistrovaniKorisnik registrovaniKorisnik = new RegistrovaniKorisnik
                     {
                         Ime = korisnikIzFajla[0],
@@ -55,6 +56,7 @@ namespace SR22_2020_POP2021.Services
                         Email = korisnikIzFajla[2],
                         Lozinka = korisnikIzFajla[3],
                         JMBG = korisnikIzFajla[4],
+                        Adresa = korisnikIzFajla[5],
                         Pol = pol,
                         TipKorisnika = tip,
                         Aktivan = status

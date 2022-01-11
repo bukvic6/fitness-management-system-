@@ -87,19 +87,20 @@ namespace SR22_2020_POP2021.Model
         }
         public string KorisnikZaUpisUFajl()
         {
-            return Ime + ";" + Prezime + ";" + Email + ";" + Lozinka + ";" + JMBG + ";" + Pol + ";" + TipKorisnika + ";" + Aktivan; 
+            return Ime + ";" + Prezime + ";" + Email + ";" + Lozinka + ";" + JMBG + ";" + Adresa+ ";" + Pol + ";" + TipKorisnika + ";" + Aktivan; 
         }
         public RegistrovaniKorisnik Clone()
         {
             RegistrovaniKorisnik kopija = new RegistrovaniKorisnik();
             kopija.Ime = Ime;
             kopija.Prezime = Prezime;
-            kopija.Aktivan = Aktivan;
             kopija.Email = Email;
             kopija.Pol = Pol;
             kopija.Lozinka = Lozinka;
+            kopija.Adresa = Adresa;
             kopija.JMBG = JMBG;
             kopija.TipKorisnika = TipKorisnika;
+            kopija.Aktivan = Aktivan;
 
             return kopija;
         }
