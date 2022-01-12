@@ -2,6 +2,7 @@
 using SR22_2020_POP2021.MojiIzuzeci;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -20,52 +21,54 @@ namespace SR22_2020_POP2021.Services
                 throw new UserNotFoundExeption($"Ne postoji korisnik sa tim emailom");
             }
             registrovaniKorisnik.Aktivan = false;
-            Util.Instance.SacuvajEntitet("korisnici.txt");
+            IzmeniKorisnika(registrovaniKorisnik);      
             
         }
 
-        public void SaveUsers(string filename)
+        public int SaveUsers(Object obj)
         {
-            using(StreamWriter file = new StreamWriter(@"../../Resources/" + filename))
+            RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
+            using(SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
             {
-                foreach(RegistrovaniKorisnik registrovaniKorisnik in Util.Instance.Korisnici)
-                {
-                    file.WriteLine(registrovaniKorisnik.KorisnikZaUpisUFajl());
-                }
+                conn.Open();
+                SqlCommand command = conn.CreateCommand();
+                command.CommandText = @"insert into dbo.Korisnici(ime, prezime, TipKorisnika,Email,Aktivan) 
+                        output inserted.id VALUES(@ime,@prezime,@TipKorisnika,@TipKorisnika,@Aktivan)";
+                command.Parameters.Add(new SqlParameter("Ime", korisnik.Ime));
+                command.Parameters.Add(new SqlParameter("Prezime", korisnik.Prezime));
+                command.Parameters.Add(new SqlParameter("TipKorisnika", korisnik.TipKorisnika.ToString()));
+                command.Parameters.Add(new SqlParameter("Email", korisnik.Email));
+                command.Parameters.Add(new SqlParameter("Aktivan", korisnik.Aktivan));
+
+                return (int)command.ExecuteScalar();
+
             }
+
+            }
+
+        
+        public void ReadUsers()
+        {
         }
 
-        public void ReadUsers(string filename)
+        public void IzmeniKorisnika(object obj)
         {
-            Util.Instance.Korisnici = new ObservableCollection<RegistrovaniKorisnik>();
-            using (StreamReader file = new StreamReader(@"../../Resources/" + filename))
+            RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
+
+            using(SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
             {
-                string line;
+                conn.Open();
+                SqlCommand command = conn.CreateCommand();
 
-                while ((line = file.ReadLine()) != null)
-                {
-                    string[] korisnikIzFajla = line.Split(';');
+                command.CommandText = @"update dbo.Korisnici set Aktivan = @Aktivan  where email= @email";
+                command.Parameters.Add(new SqlParameter("Aktivan", korisnik.Aktivan));
+                command.Parameters.Add(new SqlParameter("Email", korisnik.Email));
 
-                    Enum.TryParse(korisnikIzFajla[6], out EPol pol);
-                    Enum.TryParse(korisnikIzFajla[7], out ETipKorisnika tip);
-                    Boolean.TryParse(korisnikIzFajla[8], out Boolean status);
-                    RegistrovaniKorisnik registrovaniKorisnik = new RegistrovaniKorisnik
-                    {
-                        Ime = korisnikIzFajla[0],
-                        Prezime = korisnikIzFajla[1],
-                        Email = korisnikIzFajla[2],
-                        Lozinka = korisnikIzFajla[3],
-                        JMBG = korisnikIzFajla[4],
-                        Adresa = korisnikIzFajla[5],
-                        Pol = pol,
-                        TipKorisnika = tip,
-                        Aktivan = status
-                     
-                    };
-                    Util.Instance.Korisnici.Add(registrovaniKorisnik);
-                }
+                command.ExecuteNonQuery();
+
             }
-
         }
     }
+
+    
 }

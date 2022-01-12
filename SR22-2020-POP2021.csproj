@@ -70,6 +70,7 @@
     <Compile Include="Model\EStatus.cs" />
     <Compile Include="Model\FitnesCentar.cs" />
     <Compile Include="Model\Polaznik.cs" />
+    <Compile Include="Model\Trening.cs" />
     <Compile Include="Model\Util.cs" />
     <Compile Include="MojiIzuzeci\UserNotFoundExeption.cs" />
     <Compile Include="NeregistrovaniWindow.xaml.cs">

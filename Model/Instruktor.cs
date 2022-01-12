@@ -9,6 +9,14 @@ namespace SR22_2020_POP2021.Model
     [Serializable]
     public class Instruktor
     {
+        private int _id;
+
+        public int Id
+        {
+	        get { return _id;}
+	        set { _id = value;}
+        }
+
         
         private RegistrovaniKorisnik _korisnik;
 

@@ -10,6 +10,8 @@ namespace SR22_2020_POP2021.Model
 {
     public sealed class Util
     {
+        public static string CONNECTION_STRING = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;
+Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private static readonly Util instance = new Util();
         private IUserService userService;
         private IInstruktorService instruktorService;
@@ -46,26 +48,27 @@ namespace SR22_2020_POP2021.Model
             };
             
         }
-        public void SacuvajEntitet(string filename)
+        public int SacuvajEntitet(Object obj)
         {
-            if (filename.Contains("korisnici"))
+            if (obj is RegistrovaniKorisnik)
             {
-                userService.SaveUsers(filename);
+               return userService.SaveUsers(obj);
             }
-            else if (filename.Contains("instruktori"))
+            else if (obj is Instruktor)
             {
-                instruktorService.SaveUsers(filename);
+               return instruktorService.SaveUser(obj);
             }
+            return -1;
         }
         public void CitanjeEntiteta(string filename)
         {
             if (filename.Contains("korisnici"))
             {
-                userService.ReadUsers(filename);
+                userService.ReadUsers();
             }
             else if (filename.Contains("instruktori"))
             {
-                instruktorService.ReadUsers(filename);
+                instruktorService.ReadUsers();
             }
             
         }

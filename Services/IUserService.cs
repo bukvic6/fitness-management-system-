@@ -8,8 +8,10 @@ namespace SR22_2020_POP2021.Services
 {
     public interface IUserService
     {
-        void SaveUsers(string filename);
-        void ReadUsers(string filename);
+        int SaveUsers(Object obj);
+        void ReadUsers();
         void DeleteUser(string email);
+
+        void IzmeniKorisnika(Object obj);
     }
 }

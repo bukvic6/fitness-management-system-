@@ -56,7 +56,17 @@ namespace SR22_2020_POP2021
         {
             if (odabraniStatus.Equals(EStatus.DODAJ))
             {
+                //Adresa dodajAdresu = new Adresa
+                //{
+                //    Ulica = txtUlica.Text.TrimEnd(),
+                //    Grad = txtGrad.Text.TrimEnd(),
+                //    Broj = txtGrad.Text.TrimEnd(),
+                //    Drzava = txtDrzava.Text.TrimEnd(),
+
+                //};
+                //odabraniInstruktor.Adresa = dodajAdresu;
                 odabraniInstruktor.Aktivan = true;
+                
                 Instruktor instruktor = new Instruktor
                 {
                     Korisnik = odabraniInstruktor
@@ -64,9 +74,13 @@ namespace SR22_2020_POP2021
                 Util.Instance.Korisnici.Add(odabraniInstruktor);
                 Util.Instance.Instruktori.Add(instruktor);
 
+                int id= Util.Instance.SacuvajEntitet(odabraniInstruktor);
+                instruktor.Id = id;
+                Util.Instance.SacuvajEntitet(instruktor);
+
+
             }
-            Util.Instance.SacuvajEntitet("korisnici.txt");
-            Util.Instance.SacuvajEntitet("instruktori.txt");
+
 
             this.DialogResult = true;
             this.Close();

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,35 +14,48 @@ namespace SR22_2020_POP2021.Services
     class InstruktorService : IInstruktorService
     {
 
-        public void ReadUsers(string filename)
+        public void ReadUsers()
         {
             Util.Instance.Instruktori = new ObservableCollection<Instruktor>();
-            using(StreamReader file = new StreamReader(@"../../Resources/" + filename))
+            Util.Instance.Korisnici = new ObservableCollection<RegistrovaniKorisnik>();
+            using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING) )
             {
-                string line;
+                conn.Open();
+                string selectedUsers = @"select * from korisnici where TipKorisnika like 'INSTRUKTOR'";
 
-                while ((line = file.ReadLine())!= null)
+                SqlDataAdapter adapter = new SqlDataAdapter(selectedUsers, conn);
+
+                DataSet ds = new DataSet();
+                adapter.Fill(ds, "Instruktori");
+
+                foreach (DataRow row in ds.Tables["Instruktori"].Rows)
                 {
-                    string[] instruktorIzFajla = line.Split(';');
-                    RegistrovaniKorisnik registrovaniKorisnik = Util.Instance.Korisnici.ToList().Find(korisnik => korisnik.Email.Equals(instruktorIzFajla[0]));
-
-                    Instruktor instruktor = new Instruktor
+                    Util.Instance.Korisnici.Add(new RegistrovaniKorisnik
                     {
-                        Korisnik = registrovaniKorisnik,
-                    };
-                    Util.Instance.Instruktori.Add(instruktor);
+                        Id = Convert.ToInt32(row["Id"]),
+                        Ime = (string) row["Ime"],
+                        Prezime = (string)row["Prezime"],
+                        Email = (string)row["Email"],
+                        TipKorisnika= ETipKorisnika.INSTRUKTOR,
+                        Aktivan = (bool)row["Aktivan"]
+                    });
                 }
             }
+
+
         }
 
-        public void SaveUsers(string filename)
+        public int SaveUser(Object obj)
         {
-            using (StreamWriter file = new StreamWriter(@"../../Resources/" + filename))
+            Instruktor instruktor = obj as Instruktor;
+            using(SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
             {
-                foreach (Instruktor instruktor in Util.Instance.Instruktori)
-                {
-                    file.WriteLine(instruktor.InstruktorZaUpisUFajl());
-                }
+                conn.Open();
+                SqlCommand command = conn.CreateCommand();
+                command.CommandText = @"insert into dbo.Instruktori (Id) output inserted.id VALUES(@Id)";
+                command.Parameters.Add(new SqlParameter("Id", instruktor.Id));
+
+                return (int)command.ExecuteScalar();
             }
         }
     }

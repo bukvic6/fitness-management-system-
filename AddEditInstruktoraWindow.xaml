@@ -19,6 +19,10 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Label Name="lvlIme" Content="Ime" Grid.Row="0" Grid.Column="0"/>
@@ -36,13 +40,27 @@
         
         <Label Name="lblTip" Content="Tip" Grid.Row="4" Grid.Column="0"/>
         <ComboBox Grid.Column="1" Grid.Row="4" Name="ComboTip" SelectedItem="{Binding Path=TipKorisnika}"/>
+        
+        
+        <Label Name="lblAdresa" Content="Adresa" Grid.Row="6" Grid.Column="0"/>
+        <TextBox Name="txtUlica" Grid.Row="6" Grid.Column="1" Text="{Binding Path=Adresa}"/>
+
+        <Label Name="lblBroj" Content="Broj" Grid.Row="7" Grid.Column="0"/>
+        <TextBox Name="txtBroj" Grid.Row="7" Grid.Column="1" Text="{Binding Path=Adresa}"/>
+
+        <Label Name="lblGrad" Content="Grad" Grid.Row="8" Grid.Column="0"/>
+        <TextBox Name="txtGrad" Grid.Row="8" Grid.Column="1" Text="{Binding Path=Adresa}"/>
+
+        <Label Name="lblDrzava" Content="Drzava" Grid.Row="9" Grid.Column="0"/>
+        <TextBox Name="txtDrzava" Grid.Row="9" Grid.Column="1" Text="{Binding Path=Adresa}"/>
+
 
 
         <Label Name="lblPol" Content="Pol" Grid.Row="5" Grid.Column="0"/>
         <ComboBox Grid.Column="1" Grid.Row="5" Name="ComboPol" SelectedItem="{Binding Path=Pol}" />
         
-        <Button Name="btnCancel" Click="btnCancel_Click" Content="Cancel" Grid.Row="6" Grid.Column="0"/>
-        <Button Name="btnOk" Click="BtnOk_Click" Content="OK" Grid.Row="6" Grid.Column="1"/>
+        <Button Name="btnCancel" Click="btnCancel_Click" Content="Cancel" Grid.Row="10" Grid.Column="0"/>
+        <Button Name="btnOk" Click="BtnOk_Click" Content="OK" Grid.Row="10" Grid.Column="1"/>
 
 
 
