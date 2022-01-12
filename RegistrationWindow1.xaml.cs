@@ -41,15 +41,16 @@ namespace SR22_2020_POP2021
             {
                 Ime = txtIme.Text,
                 Prezime = txtPrezime.Text,
-                JMBG = txtJMBG.Text,
+                JMBG = txtJmbg.Text,
                 Email = txtEmail.Text,
-                TipKorisnika = ETipKorisnika.ADMINISTRATOR,
+                TipKorisnika = ETipKorisnika.POLAZNIK,
                 Aktivan = true,
                 Lozinka = txtPassword.Text,
                 Pol = pol,
             };
             Util.Instance.Korisnici.Add(k);
-            Util.Instance.SacuvajEntitet("korisnici.txt");
+
+            Util.Instance.SacuvajEntitet(k);
             this.Close();
 
             

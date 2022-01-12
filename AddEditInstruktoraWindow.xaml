@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SR22_2020_POP2021"
         mc:Ignorable="d"
-        Title="AddEditInstruktoraWindow" Height="450" Width="800">
+        Title="AddEditInstruktoraWindow" Height="550" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -43,7 +44,7 @@
         
         
         <Label Name="lblAdresa" Content="Adresa" Grid.Row="6" Grid.Column="0"/>
-        <TextBox Name="txtUlica" Grid.Row="6" Grid.Column="1" Text="{Binding Path=Adresa}"/>
+        <TextBox Name="txtUlica" Grid.Row="6" Grid.Column="1" Text="{Binding Path=Ulica}"/>
 
         <Label Name="lblBroj" Content="Broj" Grid.Row="7" Grid.Column="0"/>
         <TextBox Name="txtBroj" Grid.Row="7" Grid.Column="1" Text="{Binding Path=Adresa}"/>
@@ -58,9 +59,12 @@
 
         <Label Name="lblPol" Content="Pol" Grid.Row="5" Grid.Column="0"/>
         <ComboBox Grid.Column="1" Grid.Row="5" Name="ComboPol" SelectedItem="{Binding Path=Pol}" />
-        
-        <Button Name="btnCancel" Click="btnCancel_Click" Content="Cancel" Grid.Row="10" Grid.Column="0"/>
-        <Button Name="btnOk" Click="BtnOk_Click" Content="OK" Grid.Row="10" Grid.Column="1"/>
+
+        <Label Name="lblLozinka" Content="Lozinka" Grid.Row="10" Grid.Column="0"/>
+        <TextBox Name="txtLozinka" Grid.Row="10" Grid.Column="1" Text="{Binding Path=Lozinka}"/>
+
+        <Button Name="btnCancel" Click="btnCancel_Click" Content="Cancel" Grid.Row="11" Grid.Column="0"/>
+        <Button Name="btnOk" Click="BtnOk_Click" Content="OK" Grid.Row="11" Grid.Column="1"/>
 
 
 

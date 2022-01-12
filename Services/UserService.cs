@@ -32,13 +32,16 @@ namespace SR22_2020_POP2021.Services
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"insert into dbo.Korisnici(ime, prezime, TipKorisnika,Email,Aktivan) 
-                        output inserted.id VALUES(@ime,@prezime,@TipKorisnika,@TipKorisnika,@Aktivan)";
+                command.CommandText = @"insert into dbo.Korisnici(ime, prezime, TipKorisnika,Email,Aktivan,Lozinka,Jmbg) 
+                        output inserted.id VALUES(@ime,@prezime,@TipKorisnika,@Email,@Aktivan,@Lozinka,@Jmbg)";
                 command.Parameters.Add(new SqlParameter("Ime", korisnik.Ime));
                 command.Parameters.Add(new SqlParameter("Prezime", korisnik.Prezime));
                 command.Parameters.Add(new SqlParameter("TipKorisnika", korisnik.TipKorisnika.ToString()));
                 command.Parameters.Add(new SqlParameter("Email", korisnik.Email));
                 command.Parameters.Add(new SqlParameter("Aktivan", korisnik.Aktivan));
+                command.Parameters.Add(new SqlParameter("Lozinka", korisnik.Lozinka));
+                command.Parameters.Add(new SqlParameter("Jmbg", korisnik.JMBG));
+
 
                 return (int)command.ExecuteScalar();
 

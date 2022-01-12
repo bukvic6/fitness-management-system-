@@ -13,26 +13,25 @@
             <ColumnDefinition Width="197*"/>
         </Grid.ColumnDefinitions>
         <TextBlock HorizontalAlignment="Left" Margin="252,36,0,0" TextWrapping="Wrap" Text="REGISTRATION" VerticalAlignment="Top"/>
-        <Label Content="Name:" HorizontalAlignment="Left" Margin="158,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.856,0.66"/>
-        <Label Content="Surname:" HorizontalAlignment="Left" Margin="158,139,0,0" VerticalAlignment="Top"/>
-        <Label Content="Username:" HorizontalAlignment="Left" Margin="158,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.391,0.176"/>
+        <Label Content="Ime:" HorizontalAlignment="Left" Margin="158,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.856,0.66"/>
+        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="158,139,0,0" VerticalAlignment="Top"/>
+        <Label Content="Jmbg:" HorizontalAlignment="Left" Margin="158,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.391,0.176"/>
         <Label Content="Email:" HorizontalAlignment="Left" Margin="161,262,0,0" VerticalAlignment="Top"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="161,318,0,0" VerticalAlignment="Top"/>
-        <Label Content="Country:" HorizontalAlignment="Left" Margin="163,377,0,0" VerticalAlignment="Top"/>
-        <Label Content="City:" HorizontalAlignment="Left" Margin="161,439,0,0" VerticalAlignment="Top"/>
-        <Label Content="Street:" HorizontalAlignment="Left" Margin="163,502,0,0" VerticalAlignment="Top"/>
-        <Label Content="Street number:" HorizontalAlignment="Left" Margin="158,558,0,0" VerticalAlignment="Top"/>
-        <Label Content="Gender:" HorizontalAlignment="Left" Margin="161,621,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.266,0.689"/>
+        <Label Content="Drzava:" HorizontalAlignment="Left" Margin="163,377,0,0" VerticalAlignment="Top"/>
+        <Label Content="Grad:" HorizontalAlignment="Left" Margin="161,439,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ulica:" HorizontalAlignment="Left" Margin="163,502,0,0" VerticalAlignment="Top"/>
+        <Label Content="Broj:" HorizontalAlignment="Left" Margin="158,558,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pol:" HorizontalAlignment="Left" Margin="161,621,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.266,0.689"/>
         <TextBox Name="txtIme" HorizontalAlignment="Left" Height="23" Margin="321,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox Name="txtPrezime" HorizontalAlignment="Left" Height="23" Margin="321,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.383,0.165" Grid.ColumnSpan="2"/>
-        <TextBox Name="txtUsername" HorizontalAlignment="Left" Height="23" Margin="321,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox Name="txtJmbg" HorizontalAlignment="Left" Height="23" Margin="321,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="321,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="321,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox Name="txtDrzava" HorizontalAlignment="Left" Height="23" Margin="321,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox Name="txtGrad" HorizontalAlignment="Left" Height="23" Margin="321,442,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox Name="txtUlica" HorizontalAlignment="Left" Height="23" Margin="321,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox Name="txtBroj" HorizontalAlignment="Left" Height="23" Margin="321,561,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <TextBox Name="txtJMBG" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="321,593,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
         <ComboBox Name="cmbPol" HorizontalAlignment="Left" Margin="321,621,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
             <ComboBoxItem Content="MUSKI"/>
