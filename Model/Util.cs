@@ -15,11 +15,14 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
         private static readonly Util instance = new Util();
         private IUserService userService;
         private IInstruktorService instruktorService;
+        private IAdresaService adresaService;
+        
 
         private Util()
         {
             userService = new UserService();
             instruktorService = new InstruktorService();
+            adresaService = new AdresaService();
         }
 
         static Util() { }
@@ -33,20 +36,16 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
         }
         public ObservableCollection<RegistrovaniKorisnik> Korisnici { get; set; }
         public ObservableCollection<Instruktor> Instruktori { get; set; }
+        public ObservableCollection<Adresa> Adrese { get; set; }
+        
+        
         public void Initialize()
         {
             Korisnici = new ObservableCollection<RegistrovaniKorisnik>();
             Instruktori = new ObservableCollection<Instruktor>();
-
-            Adresa adresa = new Adresa
-            {
-                Grad = "Novi Sad",
-                Drzava = "Srbija",
-                Ulica = "ulica1",
-                Broj = "22",
-                ID = "1"
-            };
+            Adrese = new ObservableCollection<Adresa>();
             
+
         }
         public int SacuvajEntitet(Object obj)
         {
@@ -54,12 +53,17 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
             {
                return userService.SaveUsers(obj);
             }
+            else if(obj is Adresa)
+            {
+                return adresaService.SaveAdresa(obj);
+            }
             else if (obj is Instruktor)
             {
                return instruktorService.SaveUser(obj);
             }
             return -1;
         }
+
         public void CitanjeEntiteta(string filename)
         {
             if (filename.Contains("korisnici"))
@@ -70,6 +74,11 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
             {
                 instruktorService.ReadUsers();
             }
+            else if (filename.Contains("adrese"))
+            {
+                adresaService.ReadAdresa();
+            }
+           
             
         }
         public void BrisanjeKorisnika(string email)

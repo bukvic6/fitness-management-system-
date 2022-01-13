@@ -24,6 +24,7 @@ namespace SR22_2020_POP2021
         {
             Util.Instance.CitanjeEntiteta("korisnici.txt");
             Util.Instance.CitanjeEntiteta("instruktori.txt");
+            Util.Instance.CitanjeEntiteta("adrese");
             Util.Instance.SacuvajEntitet("korisnici.txt");
             Util.Instance.SacuvajEntitet("instruktori.txt");
             InitializeComponent();

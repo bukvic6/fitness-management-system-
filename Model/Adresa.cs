@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace SR22_2020_POP2021.Model
 {
+    [Serializable]
     public class Adresa
     {
-        private string _id;
+        private int _id;
 
-        public string ID
+        public int Id
         {
             get { return _id; }
             set { _id = value; }
@@ -46,11 +47,23 @@ namespace SR22_2020_POP2021.Model
             get { return _drzava; }
             set { _drzava = value; }
         }
+        public Adresa(int id) { }
+        public Adresa() { }
+
+        public Adresa(int id, string ulica, string broj, string drzava, string grad) : this(id)
+        {
+            this.Id = id;
+            this.Ulica = ulica;
+            this.Broj = broj;
+            this.Drzava = drzava;
+            this.Grad = grad;
+        }
 
         public override string ToString()
         {
             return Ulica + "," + Broj+ "," +Grad+ "," +Drzava;
         }
+
 
 
 

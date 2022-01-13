@@ -50,7 +50,20 @@ namespace SR22_2020_POP2021
             };
             Util.Instance.Korisnici.Add(k);
 
+
             Util.Instance.SacuvajEntitet(k);
+
+            Adresa a = new Adresa
+            {
+                
+                Ulica = txtUlica.Text,
+                Broj = txtBroj.Text,
+                Drzava = txtDrzava.Text,
+                Grad = txtGrad.Text,
+            };
+            
+            Util.Instance.Adrese.Add(a);
+            Util.Instance.SacuvajEntitet(a);
             this.Close();
 
             
