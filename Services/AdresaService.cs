@@ -20,7 +20,8 @@ namespace SR22_2020_POP2021.Services
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"insert into dbo.Adrese(Ulica, Broj, Drzava,Grad ) output inserted.id VALUES(@Ulica,@Broj,@Drzava,@Grad) ";
+                command.CommandText = @"insert into dbo.Adrese(id,ulica,broj,drzava,grad) output inserted.id VALUES(@Id,@Ulica,@Broj,@Drzava,@Grad) ";
+                command.Parameters.Add(new SqlParameter("Id", adresa.Id));
                 command.Parameters.Add(new SqlParameter("Ulica", adresa.Ulica));
                 command.Parameters.Add(new SqlParameter("Broj", adresa.Broj));
                 command.Parameters.Add(new SqlParameter("Drzava", adresa.Drzava));

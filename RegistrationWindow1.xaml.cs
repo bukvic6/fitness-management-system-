@@ -48,10 +48,6 @@ namespace SR22_2020_POP2021
                 Lozinka = txtPassword.Text,
                 Pol = pol,
             };
-            Util.Instance.Korisnici.Add(k);
-
-
-            Util.Instance.SacuvajEntitet(k);
 
             Adresa a = new Adresa
             {
@@ -61,8 +57,15 @@ namespace SR22_2020_POP2021
                 Drzava = txtDrzava.Text,
                 Grad = txtGrad.Text,
             };
-            
+            //int idAdrese = 1;
+            //if(Util.Instance.Korisnici.Count>0)
+            //    idAdrese= Util.Instance.Korisnici.Max(adr => adr.Id) + 1;
+            //a.Id = idAdrese;
+            Util.Instance.Korisnici.Add(k);
             Util.Instance.Adrese.Add(a);
+            
+            int id = Util.Instance.SacuvajEntitet(k);
+            a.Id = id;
             Util.Instance.SacuvajEntitet(a);
             this.Close();
 
