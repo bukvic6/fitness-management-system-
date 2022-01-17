@@ -48,7 +48,7 @@ namespace SR22_2020_POP2021
         private void UpdateView2()
         {
             DGPolaznici.ItemsSource = null;
-            view2 = new CollectionViewSource { Source = Util.Instance.Korisnici }.View;
+            view2 = new CollectionViewSource { Source = Util.Instance.Korisnici}.View;
             view2.Filter = CustomFilter2;
             view2.Refresh();
             DGPolaznici.IsSynchronizedWithCurrentItem = true;
@@ -62,7 +62,7 @@ namespace SR22_2020_POP2021
         {
             RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
 
-            if (korisnik.TipKorisnika.Equals(ETipKorisnika.POLAZNIK) && korisnik.Aktivan)
+            if ( korisnik.JMBG.Equals(Util.Instance.jmbgPrijavljen7))
             {
                 return true;
             }

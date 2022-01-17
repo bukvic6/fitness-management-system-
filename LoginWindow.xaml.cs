@@ -25,6 +25,8 @@ namespace SR22_2020_POP2021
         {
 
             InitializeComponent();
+            Util.Instance.jmbgPrijavljen7 = "";
+
         }
 
         private void OK_Click(object sender, RoutedEventArgs e)
@@ -39,14 +41,17 @@ namespace SR22_2020_POP2021
             {
                 if(k.JMBG==txtJMBG.Text && k.Lozinka == txtLozinka.Password)
                 {
-                    Util.Instance.jmbgPrijavljen = k.JMBG;
+                    Util.Instance.jmbgPrijavljen7 = k.JMBG;
+                   
                     AdminWindow adminWindow = new AdminWindow();
                     this.Hide();
                     adminWindow.Show();
+
                     
 
-
                 }
+                    
+
 
             }
             //using (StreamReader file = new StreamReader(@"../../Resources/korisnici.txt"))
