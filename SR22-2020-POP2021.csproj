@@ -69,7 +69,6 @@
     </Compile>
     <Compile Include="Model\EStatus.cs" />
     <Compile Include="Model\FitnesCentar.cs" />
-    <Compile Include="Model\Polaznik.cs" />
     <Compile Include="Model\Trening.cs" />
     <Compile Include="Model\Util.cs" />
     <Compile Include="MojiIzuzeci\UserNotFoundExeption.cs" />
@@ -79,10 +78,8 @@
     <Compile Include="RegistrationWindow1.xaml.cs">
       <DependentUpon>RegistrationWindow1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Services\AdresaService.cs" />
     <Compile Include="Services\IInstruktorService.cs" />
     <Compile Include="Services\InstruktorService.cs" />
-    <Compile Include="Services\IAdresaService.cs" />
     <Compile Include="Services\IPolaznikService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\PolaznikService.cs" />

@@ -22,11 +22,7 @@ namespace SR22_2020_POP2021
     {
         public MainWindow()
         {
-            Util.Instance.CitanjeEntiteta("korisnici.txt");
-            Util.Instance.CitanjeEntiteta("instruktori.txt");
-            Util.Instance.CitanjeEntiteta("adrese");
-            Util.Instance.SacuvajEntitet("korisnici.txt");
-            Util.Instance.SacuvajEntitet("instruktori.txt");
+            Util.Instance.CitanjeEntiteta();
             InitializeComponent();
         }
         private void BtnFitnesCentar_Click(object sender, RoutedEventArgs e)

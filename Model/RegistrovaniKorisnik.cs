@@ -58,9 +58,9 @@ namespace SR22_2020_POP2021.Model
             set { _JMBG = value; }
         }
 
-        private string _adresa;
+        private Adresa _adresa;
 
-        public string Adresa
+        public Adresa Adresa
         {
             get { return _adresa; }
             set { _adresa = value; }
@@ -83,37 +83,65 @@ namespace SR22_2020_POP2021.Model
         }
 
         private bool _aktivan;
+        
 
         public bool Aktivan
         {
             get { return _aktivan; }
             set { _aktivan = value; }
         }
-
+        
+        public RegistrovaniKorisnik(string ime, string prezime, string jmbg, string email, string lozinka, ETipKorisnika tip, EPol pol, Adresa adresa) {
+            _ime = ime;
+            _prezime = prezime;
+            _JMBG = jmbg;
+            _email = email;
+            _tipKorisnika = tip;
+            _aktivan = true;
+            _lozinka = lozinka;
+            _pol = pol;
+            _adresa = adresa;
+         }
         public RegistrovaniKorisnik() { }
+
+        public RegistrovaniKorisnik(int id, string ime, string prezime, ETipKorisnika tip, string jmbg, string email, bool aktivan, string lozinka, Adresa adresa)
+        {
+            _id = id;
+            _ime = ime;
+            _prezime = prezime;
+            _JMBG = jmbg;
+            _email = email;
+            _tipKorisnika = tip;
+            _aktivan = aktivan;
+            _lozinka = lozinka;
+
+            _adresa = adresa;
+
+        }
+
         public override string ToString()
         {
-            return "Ja sam " + Ime + "Prezime " + "tip " + TipKorisnika + "email je " + Email;
+            return "Ja sam " + Ime + "Prezime " + "tip " + TipKorisnika + "email je " + Adresa;
         }
         public string KorisnikZaUpisUFajl()
         {
             return Ime + ";" + Prezime + ";" + Email + ";" + Lozinka + ";" + JMBG + ";" + Adresa + ";" + Pol + ";" + TipKorisnika + ";" + Aktivan; 
         }
-        public RegistrovaniKorisnik Clone()
-        {
-            RegistrovaniKorisnik kopija = new RegistrovaniKorisnik();
-            kopija.Ime = Ime;
-            kopija.Prezime = Prezime;
-            kopija.Email = Email;
-            kopija.Pol = Pol;
-            kopija.Lozinka = Lozinka;
-            kopija.Adresa = Adresa;
-            kopija.JMBG = JMBG;
-            kopija.TipKorisnika = TipKorisnika;
-            kopija.Aktivan = Aktivan;
+        //public RegistrovaniKorisnik Clone()
+        //{
+        //    RegistrovaniKorisnik kopija = new RegistrovaniKorisnik();
+        //    kopija.Ime = Ime;
+        //    kopija.Prezime = Prezime;
+        //    kopija.Email = Email;
+        //    kopija.Pol = Pol;
+        //    kopija.Lozinka = Lozinka;
+        //    kopija.Adresa = Adresa;
+        //    kopija.JMBG = JMBG;
+        //    kopija.TipKorisnika = TipKorisnika;
+        //    kopija.Aktivan = Aktivan;
 
-            return kopija;
-        }
+        //    return kopija;
+        //}
 
 
 

@@ -1,6 +1,7 @@
 ﻿using SR22_2020_POP2021.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,9 @@ namespace SR22_2020_POP2021
     {
         private EStatus odabraniStatus;
         private RegistrovaniKorisnik odabraniInstruktor;
-        
+
+
+
         public AddEditInstruktoraWindow(RegistrovaniKorisnik instruktor, EStatus status = EStatus.DODAJ)
         {
             InitializeComponent();
@@ -31,6 +34,8 @@ namespace SR22_2020_POP2021
 
             ComboTip.ItemsSource = Enum.GetValues(typeof(ETipKorisnika)).Cast<ETipKorisnika>();
             ComboPol.ItemsSource = Enum.GetValues(typeof(EPol)).Cast<EPol>();
+            
+
             
             odabraniInstruktor = instruktor;
             odabraniStatus = status;
@@ -56,36 +61,58 @@ namespace SR22_2020_POP2021
         {
             if (odabraniStatus.Equals(EStatus.DODAJ))
             {
-                //Adresa dodajAdresu = new Adresa
-                //{
-                //    Ulica = txtUlica.Text.TrimEnd(),
-                //    Grad = txtGrad.Text.TrimEnd(),
-                //    Broj = txtGrad.Text.TrimEnd(),
-                //    Drzava = txtDrzava.Text.TrimEnd(),
 
-                //};
-                //odabraniInstruktor.Adresa = dodajAdresu;
-                odabraniInstruktor.Aktivan = true;
-                
-                Instruktor instruktor = new Instruktor
+
+                Adresa adresa = new Adresa
                 {
-                    Korisnik = odabraniInstruktor
-                };
-                Util.Instance.Korisnici.Add(odabraniInstruktor);
-                Util.Instance.Instruktori.Add(instruktor);
 
-                int id= Util.Instance.SacuvajEntitet(odabraniInstruktor);
-                instruktor.Id = id;
-                Util.Instance.SacuvajEntitet(instruktor);
+                    Ulica = txtUlica.Text,
+                    Broj = txtBroj.Text,
+                    Drzava = txtDrzava.Text,
+                    Grad = txtGrad.Text,
+                };
+
+                RegistrovaniKorisnik k = new RegistrovaniKorisnik(txtIme.Text, txtPrezime.Text, txtJmbg.Text, txtEmail.Text, txtLozinka.Text, ETipKorisnika.INSTRUKTOR,EPol.DRUGO, adresa);
+
+
+                Util.Instance.Korisnici.Add(k);
+
+                Util.Instance.SacuvajEntitet(k);
+                this.Close();
+
+
 
 
             }
+            //else {
 
 
-            this.DialogResult = true;
+            //    iZmena(odabraniInstruktor);
+               
+            //}
+            
+
+
+            
             this.Close();
 
         }
+        //public int iZmena(object obj)
+        //{
+        //    RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
+        //    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+        //    {
+        //        conn.Open();
+        //        SqlCommand command = conn.CreateCommand();
+        //        command.CommandText = @"update dbo.Korisnici set  Ime= '" + this.txtIme.Text + "' ,Prezime= '" + this.txtPrezime.Text + "',Lozinka= '" + this.txtLozinka.Text + "' where Id=" + korisnik.Id + ";";
+        //       // command.ExecuteScalar();
+                
+        //        return (int)command.ExecuteNonQuery();
+        //    }
+
+
+        //}
+
 
 
     }

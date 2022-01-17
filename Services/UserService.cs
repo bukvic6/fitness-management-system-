@@ -25,6 +25,7 @@ namespace SR22_2020_POP2021.Services
             
         }
 
+
         public int SaveUsers(Object obj)
         {
             RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
@@ -32,8 +33,8 @@ namespace SR22_2020_POP2021.Services
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"insert into dbo.Korisnici(ime, prezime, TipKorisnika,Email,Aktivan,Lozinka,Jmbg) 
-                        output inserted.id VALUES(@ime,@prezime,@TipKorisnika,@Email,@Aktivan,@Lozinka,@Jmbg)";
+                command.CommandText = @"insert into dbo.Korisnici(Ime, Prezime, TipKorisnika,Email,Aktivan,Lozinka,JMBG,Ulica,Broj,Drzava,Grad) 
+                        output inserted.id VALUES(@ime,@prezime,@TipKorisnika,@Email,@Aktivan,@Lozinka,@JMBG,@Ulica,@Broj,@Drzava,@Grad)";
                 command.Parameters.Add(new SqlParameter("Ime", korisnik.Ime));
                 command.Parameters.Add(new SqlParameter("Prezime", korisnik.Prezime));
                 command.Parameters.Add(new SqlParameter("TipKorisnika", korisnik.TipKorisnika.ToString()));
@@ -41,6 +42,11 @@ namespace SR22_2020_POP2021.Services
                 command.Parameters.Add(new SqlParameter("Aktivan", korisnik.Aktivan));
                 command.Parameters.Add(new SqlParameter("Lozinka", korisnik.Lozinka));
                 command.Parameters.Add(new SqlParameter("Jmbg", korisnik.JMBG));
+                command.Parameters.Add(new SqlParameter("Ulica", korisnik.Adresa.Ulica));
+                command.Parameters.Add(new SqlParameter("Broj", korisnik.Adresa.Broj));
+                command.Parameters.Add(new SqlParameter("Drzava", korisnik.Adresa.Drzava));
+                command.Parameters.Add(new SqlParameter("Grad", korisnik.Adresa.Grad));
+
 
 
                 return (int)command.ExecuteScalar();
@@ -48,7 +54,6 @@ namespace SR22_2020_POP2021.Services
             }
 
             }
-
         
         public void ReadUsers()
         {
@@ -66,11 +71,12 @@ namespace SR22_2020_POP2021.Services
                 command.CommandText = @"update dbo.Korisnici set Aktivan = @Aktivan  where email= @email";
                 command.Parameters.Add(new SqlParameter("Aktivan", korisnik.Aktivan));
                 command.Parameters.Add(new SqlParameter("Email", korisnik.Email));
-
                 command.ExecuteNonQuery();
 
             }
         }
+
+
     }
 
     

@@ -23,8 +23,7 @@ namespace SR22_2020_POP2021
     {
         public LoginWindow()
         {
-            Util.Instance.CitanjeEntiteta("korisnici.txt");
-            Util.Instance.CitanjeEntiteta("instruktori.txt");
+
             InitializeComponent();
         }
 
@@ -36,34 +35,48 @@ namespace SR22_2020_POP2021
                 return;
 
             }
-            using (StreamReader file = new StreamReader(@"../../Resources/korisnici.txt"))
+            foreach(RegistrovaniKorisnik k in Util.Instance.Korisnici)
             {
-                string line;
-
-                while ((line = file.ReadLine()) != null)
+                if(k.JMBG==txtJMBG.Text && k.Lozinka == txtLozinka.Password)
                 {
-                    string[] korisnikIzFajla = line.Split(';');
+                    Util.Instance.jmbgPrijavljen = k.JMBG;
+                    AdminWindow adminWindow = new AdminWindow();
+                    this.Hide();
+                    adminWindow.Show();
+                    
 
-                    Enum.TryParse(korisnikIzFajla[6], out ETipKorisnika tip);
 
-                    string Lozinka = korisnikIzFajla[3];
-                    string JMBG = korisnikIzFajla[4];
-                    string TipKorisnika = korisnikIzFajla[7];
-
-                    if (txtJMBG.Text.Trim() == JMBG && txtLozinka.Password.ToString() == Lozinka && TipKorisnika == ETipKorisnika.INSTRUKTOR.ToString())
-                    {
-                        MessageBox.Show("Instruktor");
-                        break;
-                    }
-                    else if (txtJMBG.Text.Trim() == JMBG && txtLozinka.Password.ToString() == Lozinka && TipKorisnika == ETipKorisnika.ADMINISTRATOR.ToString())
-                    {
-                        AdminWindow adminWindow = new AdminWindow();
-                        this.Hide();
-                        adminWindow.Show();
-
-                    }
                 }
+
             }
+            //using (StreamReader file = new StreamReader(@"../../Resources/korisnici.txt"))
+            //{
+            //    string line;
+
+            //    while ((line = file.ReadLine()) != null)
+            //    {
+            //        string[] korisnikIzFajla = line.Split(';');
+
+            //        Enum.TryParse(korisnikIzFajla[6], out ETipKorisnika tip);
+
+            //        string Lozinka = korisnikIzFajla[3];
+            //        string JMBG = korisnikIzFajla[4];
+            //        string TipKorisnika = korisnikIzFajla[7];
+
+            //        if (txtJMBG.Text.Trim() == JMBG && txtLozinka.Password.ToString() == Lozinka && TipKorisnika == ETipKorisnika.INSTRUKTOR.ToString())
+            //        {
+            //            MessageBox.Show("Instruktor");
+            //            break;
+            //        }
+            //        else if (txtJMBG.Text.Trim() == JMBG && txtLozinka.Password.ToString() == Lozinka && TipKorisnika == ETipKorisnika.ADMINISTRATOR.ToString())
+            //        {
+            //            AdminWindow adminWindow = new AdminWindow();
+            //            this.Hide();
+            //            adminWindow.Show();
+
+            //        }
+            //    }
+            //}
         }
     }
 }

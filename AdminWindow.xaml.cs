@@ -83,15 +83,17 @@ namespace SR22_2020_POP2021
 
         private void Izmena_Click(object sender, RoutedEventArgs e)
         {
-            RegistrovaniKorisnik selektedInstruktor = view.CurrentItem as RegistrovaniKorisnik;
+            RegistrovaniKorisnik korisnikZaIzmenu = view.CurrentItem as RegistrovaniKorisnik;
 
-            RegistrovaniKorisnik stariInstruktor = selektedInstruktor.Clone();
+            //RegistrovaniKorisnik stariInstruktor = selektedInstruktor.Clone();
 
-            AddEditInstruktoraWindow addEditInstruktoraWindow = new AddEditInstruktoraWindow(selektedInstruktor, EStatus.IZMENI);
+            AddEditInstruktoraWindow addEditInstruktoraWindow = new AddEditInstruktoraWindow(korisnikZaIzmenu, EStatus.IZMENI);
             this.Hide();
             if (!(bool)addEditInstruktoraWindow.ShowDialog()){
-                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(stariInstruktor.Email));
-                Util.Instance.Korisnici[index] = stariInstruktor;
+                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(korisnikZaIzmenu.Email));
+                
+                Util.Instance.Korisnici[index] = korisnikZaIzmenu;
+                
             }
             this.Show();
             view.Refresh();
@@ -100,10 +102,10 @@ namespace SR22_2020_POP2021
         
         private void Brisanje_Click(object sender, RoutedEventArgs e)
         {
-            RegistrovaniKorisnik instruktorZaBrisanje = view.CurrentItem as RegistrovaniKorisnik;
-            Util.Instance.BrisanjeKorisnika(instruktorZaBrisanje.Email);
+            RegistrovaniKorisnik korisnikZaBrisanje = view.CurrentItem as RegistrovaniKorisnik;
+            Util.Instance.BrisanjeKorisnika(korisnikZaBrisanje.Email);
 
-            int index = Util.Instance.Korisnici.ToList().FindIndex(korisnik => korisnik.Email.Equals(instruktorZaBrisanje.Email));
+            int index = Util.Instance.Korisnici.ToList().FindIndex(korisnik => korisnik.Email.Equals(korisnikZaBrisanje.Email));
             Util.Instance.Korisnici[index].Aktivan = false;
 
             UpdateView();
@@ -118,6 +120,7 @@ namespace SR22_2020_POP2021
             this.Hide();
             if (!(bool)addEditInstruktoraWindow.ShowDialog())
             {
+                
 
             }
             this.Show();

@@ -1,52 +1,75 @@
-﻿using SR22_2020_POP2021.Model;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SR22_2020_POP2021.Model;
 
 namespace SR22_2020_POP2021.Services
 {
     class InstruktorService : IInstruktorService
+
     {
+
+
 
         public void ReadUsers()
         {
             Util.Instance.Instruktori = new ObservableCollection<Instruktor>();
             Util.Instance.Korisnici = new ObservableCollection<RegistrovaniKorisnik>();
-            using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING) )
+            using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
             {
                 conn.Open();
-                string selectedUsers = @"select * from korisnici where TipKorisnika like 'INSTRUKTOR'";
-
-                SqlDataAdapter adapter = new SqlDataAdapter(selectedUsers, conn);
-
-                DataSet ds = new DataSet();
-                adapter.Fill(ds, "Instruktori");
-
-                foreach (DataRow row in ds.Tables["Instruktori"].Rows)
+                
+                SqlCommand command = conn.CreateCommand();
+                command.CommandText = @"select * from korisnici";
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
                 {
+                    Adresa a = new Adresa()
+                    {
+
+
+
+                        Ulica = reader.GetString(8),
+                        Broj = reader.GetString(9),
+                        Drzava = reader.GetString(10),
+
+                        Grad = reader.GetString(11),
+
+
+                    };
                     Util.Instance.Korisnici.Add(new RegistrovaniKorisnik
                     {
-                        Id = Convert.ToInt32(row["Id"]),
-                        Ime = (string) row["Ime"],
-                        Prezime = (string)row["Prezime"],
-                        Email = (string)row["Email"],
-                        TipKorisnika= ETipKorisnika.INSTRUKTOR,
-                        Aktivan = (bool)row["Aktivan"]
-                    });
+                        
+
+                        Id = reader.GetInt32(0),
+                        Ime = reader.GetString(1),
+                        Prezime = reader.GetString(2),
+                        Email = reader.GetString(4),
+                        TipKorisnika = ETipKorisnika.INSTRUKTOR,
+                        Aktivan = reader.GetBoolean(5),
+                        JMBG = reader.GetString(6),
+                        Lozinka = reader.GetString(7),                 
+                        Adresa = a
+
+                }); ;
+
+                    //ETipKorisnika tip = (ETipKorisnika)Enum.Parse(typeof(ETipKorisnika), reader.GetString(3));
+                    //Adresa adresa = new Adresa(reader.GetString(8), reader.GetString(9), reader.GetString(10), reader.GetString(11));
+
+                    //RegistrovaniKorisnik korisnik = new RegistrovaniKorisnik(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), tip, reader.GetString(3), reader.GetString(4), reader.GetBoolean(5), reader.GetString(6), adresa);
+                    //Util.Instance.Korisnici.Add(korisnik);
                 }
+                reader.Close();
             }
         }
+
 
         public int SaveUser(Object obj)
         {
             Instruktor instruktor = obj as Instruktor;
-            using(SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+            using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
@@ -56,5 +79,8 @@ namespace SR22_2020_POP2021.Services
                 return (int)command.ExecuteScalar();
             }
         }
+
     }
 }
+
+

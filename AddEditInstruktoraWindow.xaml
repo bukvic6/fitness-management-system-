@@ -44,16 +44,16 @@
         
         
         <Label Name="lblAdresa" Content="Adresa" Grid.Row="6" Grid.Column="0"/>
-        <TextBox Name="txtUlica" Grid.Row="6" Grid.Column="1" Text="{Binding Path=Ulica}"/>
+        <TextBox Name="txtUlica" Grid.Row="6" Grid.Column="1" Text="{Binding Path=Adresa.Ulica}"/>
 
         <Label Name="lblBroj" Content="Broj" Grid.Row="7" Grid.Column="0"/>
-        <TextBox Name="txtBroj" Grid.Row="7" Grid.Column="1" Text="{Binding Path=Adresa}"/>
+        <TextBox Name="txtBroj" Grid.Row="7" Grid.Column="1" Text="{Binding Path=Broj}"/>
 
         <Label Name="lblGrad" Content="Grad" Grid.Row="8" Grid.Column="0"/>
-        <TextBox Name="txtGrad" Grid.Row="8" Grid.Column="1" Text="{Binding Path=Adresa}"/>
+        <TextBox Name="txtGrad" Grid.Row="8" Grid.Column="1" Text="{Binding Path=Grad}"/>
 
         <Label Name="lblDrzava" Content="Drzava" Grid.Row="9" Grid.Column="0"/>
-        <TextBox Name="txtDrzava" Grid.Row="9" Grid.Column="1" Text="{Binding Path=Adresa}"/>
+        <TextBox Name="txtDrzava" Grid.Row="9" Grid.Column="1" Text="{Binding Path=Drzava}"/>
 
 
 

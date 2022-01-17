@@ -59,11 +59,13 @@ namespace SR22_2020_POP2021
 
         private void DGInstruktori_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName.Equals("Adresa") )
+            if (e.PropertyName.Equals("Adresa"))
             {
-                e.Column.Visibility = Visibility.Collapsed;
+                e.ToString();
 
             }
+
+
             if (e.PropertyName.Equals("Aktivan"))
             {
                 e.Column.Visibility = Visibility.Collapsed;

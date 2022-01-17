@@ -36,40 +36,26 @@ namespace SR22_2020_POP2021
             ComboBoxItem selektovaniItem = (ComboBoxItem)cmbPol.SelectedItem;
             string value = selektovaniItem.Content.ToString();
             Enum.TryParse(value, out EPol pol);
-
-            RegistrovaniKorisnik k = new RegistrovaniKorisnik
+            Adresa adresa = new Adresa
             {
-                Ime = txtIme.Text,
-                Prezime = txtPrezime.Text,
-                JMBG = txtJmbg.Text,
-                Email = txtEmail.Text,
-                TipKorisnika = ETipKorisnika.POLAZNIK,
-                Aktivan = true,
-                Lozinka = txtPassword.Text,
-                Pol = pol,
-            };
 
-            Adresa a = new Adresa
-            {
-                
                 Ulica = txtUlica.Text,
                 Broj = txtBroj.Text,
                 Drzava = txtDrzava.Text,
                 Grad = txtGrad.Text,
             };
-            //int idAdrese = 1;
-            //if(Util.Instance.Korisnici.Count>0)
-            //    idAdrese= Util.Instance.Korisnici.Max(adr => adr.Id) + 1;
-            //a.Id = idAdrese;
-            Util.Instance.Korisnici.Add(k);
-            Util.Instance.Adrese.Add(a);
-            
-            int id = Util.Instance.SacuvajEntitet(k);
-            a.Id = id;
-            Util.Instance.SacuvajEntitet(a);
-            this.Close();
+
+            RegistrovaniKorisnik k = new RegistrovaniKorisnik(txtIme.Text, txtPrezime.Text, txtJmbg.Text,txtEmail.Text, txtPassword.Text, ETipKorisnika.POLAZNIK, pol, adresa);
 
             
+            Util.Instance.Korisnici.Add(k);
+           
+            
+            
+            
+            Util.Instance.SacuvajEntitet(k);
+            this.Close();
+
 
         }
 
