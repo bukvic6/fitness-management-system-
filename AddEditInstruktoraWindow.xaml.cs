@@ -61,8 +61,6 @@ namespace SR22_2020_POP2021
         {
             if (odabraniStatus.Equals(EStatus.DODAJ))
             {
-
-
                 Adresa adresa = new Adresa
                 {
 
@@ -80,38 +78,36 @@ namespace SR22_2020_POP2021
                 Util.Instance.SacuvajEntitet(k);
                 this.Close();
 
+            }
+            else
+            {
 
 
+                iZmena(odabraniInstruktor);
 
             }
-            //else {
 
 
-            //    iZmena(odabraniInstruktor);
-               
-            //}
-            
 
 
-            
             this.Close();
 
         }
-        //public int iZmena(object obj)
-        //{
-        //    RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
-        //    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
-        //    {
-        //        conn.Open();
-        //        SqlCommand command = conn.CreateCommand();
-        //        command.CommandText = @"update dbo.Korisnici set  Ime= '" + this.txtIme.Text + "' ,Prezime= '" + this.txtPrezime.Text + "',Lozinka= '" + this.txtLozinka.Text + "' where Id=" + korisnik.Id + ";";
-        //       // command.ExecuteScalar();
-                
-        //        return (int)command.ExecuteNonQuery();
-        //    }
+        public int iZmena(object obj)
+        {
+            RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
+            using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+            {
+                conn.Open();
+                SqlCommand command = conn.CreateCommand();
+                command.CommandText = @"update dbo.Korisnici set  Ime= '" + this.txtIme.Text + "' ,Prezime= '" + this.txtPrezime.Text + "',Lozinka= '" + this.txtLozinka.Text + "' where Id=" + korisnik.Id + ";";
+                // command.ExecuteScalar();
+
+                return (int)command.ExecuteNonQuery();
+            }
 
 
-        //}
+        }
 
 
 

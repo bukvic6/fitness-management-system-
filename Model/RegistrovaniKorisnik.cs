@@ -127,21 +127,21 @@ namespace SR22_2020_POP2021.Model
         {
             return Ime + ";" + Prezime + ";" + Email + ";" + Lozinka + ";" + JMBG + ";" + Adresa + ";" + Pol + ";" + TipKorisnika + ";" + Aktivan; 
         }
-        //public RegistrovaniKorisnik Clone()
-        //{
-        //    RegistrovaniKorisnik kopija = new RegistrovaniKorisnik();
-        //    kopija.Ime = Ime;
-        //    kopija.Prezime = Prezime;
-        //    kopija.Email = Email;
-        //    kopija.Pol = Pol;
-        //    kopija.Lozinka = Lozinka;
-        //    kopija.Adresa = Adresa;
-        //    kopija.JMBG = JMBG;
-        //    kopija.TipKorisnika = TipKorisnika;
-        //    kopija.Aktivan = Aktivan;
+        public RegistrovaniKorisnik Clone()
+        {
+            RegistrovaniKorisnik kopija = new RegistrovaniKorisnik();
+            kopija.Ime = Ime;
+            kopija.Prezime = Prezime;
+            kopija.Email = Email;
+            kopija.Pol = Pol;
+            kopija.Lozinka = Lozinka;
+            kopija.Adresa = Adresa;
+            kopija.JMBG = JMBG;
+            kopija.TipKorisnika = TipKorisnika;
+            kopija.Aktivan = Aktivan;
 
-        //    return kopija;
-        //}
+            return kopija;
+        }
 
 
 

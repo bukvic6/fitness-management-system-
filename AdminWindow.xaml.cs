@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,6 +78,35 @@ namespace SR22_2020_POP2021
 
             if(korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && korisnik.Aktivan)
             {
+
+                return true;
+            }
+            return false;
+        }
+        private bool CustomFilterPretraga(Object obj)
+        {
+            RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
+
+            if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && korisnik.Aktivan)
+            {
+
+                using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                {
+                    conn.Open();
+
+                    SqlCommand command = conn.CreateCommand();
+                    command.CommandText = @"select * from korisnici where Ime = @ime";
+                    command.Parameters.AddWithValue("@ime", pretragaTxtBox.Text);
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        DGInstruktori.ItemsSource = dt.DefaultView;
+
+                    }
+
+
+                }
                 return true;
             }
             return false;
@@ -85,7 +116,7 @@ namespace SR22_2020_POP2021
         {
             RegistrovaniKorisnik korisnikZaIzmenu = view.CurrentItem as RegistrovaniKorisnik;
 
-            //RegistrovaniKorisnik stariInstruktor = selektedInstruktor.Clone();
+            RegistrovaniKorisnik stariInstruktor = korisnikZaIzmenu.Clone();
 
             AddEditInstruktoraWindow addEditInstruktoraWindow = new AddEditInstruktoraWindow(korisnikZaIzmenu, EStatus.IZMENI);
             this.Hide();
@@ -124,6 +155,15 @@ namespace SR22_2020_POP2021
 
             }
             this.Show();
+            view.Refresh();
+
+        }
+
+
+        private void Pretraga_Click(object sender, RoutedEventArgs e)
+        {
+            view.Filter = CustomFilterPretraga;
+
             view.Refresh();
 
         }

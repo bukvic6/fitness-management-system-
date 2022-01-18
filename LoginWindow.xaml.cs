@@ -46,6 +46,7 @@ namespace SR22_2020_POP2021
                     AdminWindow adminWindow = new AdminWindow();
                     this.Hide();
                     adminWindow.Show();
+                  
 
                     
 
