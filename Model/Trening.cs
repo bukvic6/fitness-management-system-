@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace SR22_2020_POP2021.Model
 {
+    [Serializable]
+
     public class Trening
     {
-        private string _id;
+        private int _id;
 
-        public string Id
+        public int Id
         {
             get { return _id; }
             set { _id = value; }
@@ -25,9 +27,9 @@ namespace SR22_2020_POP2021.Model
             set { _datum = value; }
         }
 
-        private DateTime _vremeTreninga;
+        private string _vremeTreninga;
 
-        public DateTime VremeTreninga
+        public string VremeTreninga
         {
             get { return _vremeTreninga; }
             set { _vremeTreninga = value; }
@@ -41,13 +43,51 @@ namespace SR22_2020_POP2021.Model
             set { _trajanjeTreninga = value; }
         }
 
-        private Boolean _statusTreninga;
+        private EStatusTreninga _statusTreninga;
 
-        public Boolean MyProperty
+        public EStatusTreninga StatusTreninga
         {
             get { return _statusTreninga; }
             set { _statusTreninga = value; }
         }
+
+        private string _polaznikJmbg;
+
+        public string PolaznikJmbg
+        {
+	        get { return _polaznikJmbg;}
+	        set { _polaznikJmbg = value;}
+        }
+
+        private string _instruktorJmbg;
+
+        
+        public string InstruktorJmbg
+        {
+	        get { return _instruktorJmbg;}
+	        set { _instruktorJmbg = value;}
+        }
+        private bool _aktivan;
+
+        public Trening() { }
+
+        public Trening(DateTime date, string text1, string text2, string text3, EStatusTreninga tip)
+        {
+            _datum = date;
+            _vremeTreninga = text1;
+            _statusTreninga = tip;
+            _trajanjeTreninga = int.Parse(text2);
+            _instruktorJmbg = text3;
+        }
+
+        public bool Aktivan
+        {
+            get { return _aktivan; }
+            set { _aktivan = value; }
+        }
+
+
+
 
 
 

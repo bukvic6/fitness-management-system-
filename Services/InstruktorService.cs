@@ -47,7 +47,7 @@ namespace SR22_2020_POP2021.Services
                         Ime = reader.GetString(1),
                         Prezime = reader.GetString(2),
                         Email = reader.GetString(4),
-                        TipKorisnika = ETipKorisnika.INSTRUKTOR,
+                        TipKorisnika = (ETipKorisnika)Enum.Parse(typeof(ETipKorisnika), reader.GetString(3)),
                         Aktivan = reader.GetBoolean(5),
                         JMBG = reader.GetString(6),
                         Lozinka = reader.GetString(7),                 

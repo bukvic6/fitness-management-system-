@@ -13,7 +13,7 @@
         <Button Content="Brisanje" Click="Brisanje_Click" HorizontalAlignment="Left" Margin="347,10,0,0" VerticalAlignment="Top" Width="75"/>
 
         <Button Content="Izmena Polaznika" Click="IzmenaP_Click" HorizontalAlignment="Left" Margin="367,222,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Brisanje Polaznika" Click="BrisanjeP_Click" HorizontalAlignment="Left" Margin="576,216,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Dodaj novi trening" Click="BP_Click" HorizontalAlignment="Left" Margin="576,216,0,0" VerticalAlignment="Top" Width="75"/>
         <DataGrid Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Left" Height="100" Margin="131,303,0,0" VerticalAlignment="Top" Width="583"/>
         <ComboBox Name="PretragaOdabir" HorizontalAlignment="Left" Margin="454,10,0,0" VerticalAlignment="Top" Width="120">
         <ComboBoxItem Name="Ime" Content="Pretraga po imenu"/>

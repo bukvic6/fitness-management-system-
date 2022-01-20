@@ -39,19 +39,35 @@ namespace SR22_2020_POP2021
             }
             foreach(RegistrovaniKorisnik k in Util.Instance.Korisnici)
             {
-                if(k.JMBG==txtJMBG.Text && k.Lozinka == txtLozinka.Password)
+                if(k.JMBG==txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.ADMINISTRATOR)
                 {
                     Util.Instance.jmbgPrijavljen7 = k.JMBG;
                    
                     AdminWindow adminWindow = new AdminWindow();
                     this.Hide();
                     adminWindow.Show();
+
+                    break;
                   
 
                     
 
                 }
-                    
+                else if (k.JMBG == txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.POLAZNIK)
+                {
+                    Util.Instance.jmbgPrijavljen7 = k.JMBG;
+
+                    InstruktorWindow instruktWindow = new InstruktorWindow();
+                    this.Hide();
+                    instruktWindow.Show();
+
+                    break;
+
+
+
+
+                }
+
 
 
             }

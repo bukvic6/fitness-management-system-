@@ -1,6 +1,6 @@
 ﻿create table [dbo].[Trening](
 id int not null,
-datumTreninga varchar(50),
+datumTreninga datetime,
 vremePocetka varchar(50),
 trajanjeTreninga int,
 statusTreninga varchar(20),

@@ -199,5 +199,12 @@ namespace SR22_2020_POP2021
 
 
         }
+
+        private void BP_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditTrening treningWindow = new AddEditTrening();
+            this.Hide();
+            treningWindow.Show();
+        }
     }
 }

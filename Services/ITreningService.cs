@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace SR22_2020_POP2021.Services
 {
-    interface IPolaznikService
+    interface ITreningService
     {
+        int SaveTrening(Object obj);
+        void ReadTrening();
     }
 }

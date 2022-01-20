@@ -17,6 +17,7 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
         private static readonly Util instance = new Util();
         private IUserService userService;
         private IInstruktorService instruktorService;
+        private ITreningService treningService;
         
 
 
@@ -24,7 +25,8 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
         private Util()
         {
             userService = new UserService();
-            instruktorService = new InstruktorService(); 
+            instruktorService = new InstruktorService();
+            treningService = new TreningService();
 
             
         }
@@ -42,6 +44,7 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
         public ObservableCollection<RegistrovaniKorisnik> Korisnici { get; set; }
         public ObservableCollection<Instruktor> Instruktori { get; set; }
 
+        public ObservableCollection<Trening> Treninzi { get; set; }
         
 
 
@@ -51,7 +54,7 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
         {
             Korisnici = new ObservableCollection<RegistrovaniKorisnik>();
             Instruktori = new ObservableCollection<Instruktor>();
-            
+            Treninzi = new ObservableCollection<Trening>();
             
 
 
@@ -66,7 +69,10 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
             {
                 return instruktorService.SaveUser(obj);
             }
-            
+            else if (obj is Trening)
+            {
+                return treningService.SaveTrening(obj);
+            }
             return -1;
         }
   
@@ -77,7 +83,7 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
             
             instruktorService.ReadUsers();
             userService.ReadUsers();
-            
+            treningService.ReadTrening();
             
         }
         public void BrisanjeKorisnika(string email)

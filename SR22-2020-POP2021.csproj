@@ -58,8 +58,14 @@
     <Compile Include="AddEditInstruktoraWindow.xaml.cs">
       <DependentUpon>AddEditInstruktoraWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddEditTrening.xaml.cs">
+      <DependentUpon>AddEditTrening.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InstruktorWindow.xaml.cs">
+      <DependentUpon>InstruktorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -68,6 +74,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\EStatus.cs" />
+    <Compile Include="Model\EStatusTreninga.cs" />
     <Compile Include="Model\FitnesCentar.cs" />
     <Compile Include="Model\Trening.cs" />
     <Compile Include="Model\Util.cs" />
@@ -80,9 +87,9 @@
     </Compile>
     <Compile Include="Services\IInstruktorService.cs" />
     <Compile Include="Services\InstruktorService.cs" />
-    <Compile Include="Services\IPolaznikService.cs" />
+    <Compile Include="Services\ITreningService.cs" />
     <Compile Include="Services\IUserService.cs" />
-    <Compile Include="Services\PolaznikService.cs" />
+    <Compile Include="Services\TreningService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -92,7 +99,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddEditTrening.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InstruktorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
