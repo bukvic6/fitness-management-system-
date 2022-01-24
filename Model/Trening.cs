@@ -78,6 +78,7 @@ namespace SR22_2020_POP2021.Model
             _statusTreninga = tip;
             _trajanjeTreninga = int.Parse(text2);
             _instruktorJmbg = text3;
+            _aktivan = true;
         }
 
         public bool Aktivan

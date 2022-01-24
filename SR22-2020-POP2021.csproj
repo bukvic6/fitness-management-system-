@@ -82,8 +82,14 @@
     <Compile Include="NeregistrovaniWindow.xaml.cs">
       <DependentUpon>NeregistrovaniWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PolaznikWindow.xaml.cs">
+      <DependentUpon>PolaznikWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegistrationWindow1.xaml.cs">
       <DependentUpon>RegistrationWindow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RezervisiTrening.xaml.cs">
+      <DependentUpon>RezervisiTrening.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\IInstruktorService.cs" />
     <Compile Include="Services\InstruktorService.cs" />
@@ -123,7 +129,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PolaznikWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegistrationWindow1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RezervisiTrening.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

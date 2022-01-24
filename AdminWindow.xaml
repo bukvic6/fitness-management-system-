@@ -5,23 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SR22_2020_POP2021"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="550" Width="800">
+        Title="AdminWindow" Height="650" Width="800">
     <Grid>
         <Button Content="Dodavanje" Click="Dodavanje_Click" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Izmena" Click="Izmena_Click" HorizontalAlignment="Left" Margin="262,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <DataGrid Name="DGInstruktori" AutoGeneratingColumn="DGInstruktori_AutoGeneratingColumn" HorizontalAlignment="Left" Height="151" Margin="135,36,0,0" VerticalAlignment="Top" Width="576" />
+        <DataGrid CanUserAddRows="False" Name="DGInstruktori" AutoGeneratingColumn="DGInstruktori_AutoGeneratingColumn" HorizontalAlignment="Center" Height="151" Margin="0,37,0,0" VerticalAlignment="Top" Width="576" />
         <Button Content="Brisanje" Click="Brisanje_Click" HorizontalAlignment="Left" Margin="347,10,0,0" VerticalAlignment="Top" Width="75"/>
 
-        <Button Content="Izmena Polaznika" Click="IzmenaP_Click" HorizontalAlignment="Left" Margin="367,222,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Dodaj novi trening" Click="BP_Click" HorizontalAlignment="Left" Margin="576,216,0,0" VerticalAlignment="Top" Width="75"/>
-        <DataGrid Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Left" Height="100" Margin="131,303,0,0" VerticalAlignment="Top" Width="583"/>
-        <ComboBox Name="PretragaOdabir" HorizontalAlignment="Left" Margin="454,10,0,0" VerticalAlignment="Top" Width="120">
-        <ComboBoxItem Name="Ime" Content="Pretraga po imenu"/>
-        <ComboBoxItem Name="Prezime" Content="Pretraga po prezimenu"/>
-        
-        </ComboBox>
-        <Button Content="Pretrazi" Click="Pretraga_Click" Name="pretrazi" HorizontalAlignment="Left" Margin="725,21,0,0" VerticalAlignment="Top"/>
-        <TextBox Text="Unesite pojam" Name="pretragaTxtBox" TextWrapping="Wrap" Margin="594,10,105,0" Height="20" VerticalAlignment="Top"/>
+        <Button Content="Izmena licnih informacija" Click="IzmenaP_Click" HorizontalAlignment="Center" Margin="0,504,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Dodaj novi trening" Click="BP_Click" HorizontalAlignment="Left" Margin="704,278,0,0" VerticalAlignment="Top" Width="75"/>
+        <DataGrid CanUserAddRows="False" Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Center" Height="47" Margin="0,415,0,0" VerticalAlignment="Top" Width="584"/>
+        <Button Content="Pretrazi" Click="Pretraga_Click" Name="pretrazi" HorizontalAlignment="Left" Margin="134,229,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="Ime" Name="pretragaTxtBox" TextWrapping="Wrap" Margin="115,206,584,0" Height="18" VerticalAlignment="Top"/>
+        <DataGrid CanUserAddRows="False" x:Name="GDTreninzi" AutoGeneratingColumn="GDTreninzi_AutoGeneratingColumn" HorizontalAlignment="Center" Height="129" Margin="0,254,0,0" VerticalAlignment="Top" Width="576"/>
+        <Button Content="Obrisi trening" Click="ObrisiTrening_Click" HorizontalAlignment="Left" Margin="702,338,0,0" VerticalAlignment="Top"/>
+        <TextBox  HorizontalAlignment="Left" Margin="221,206,0,0" Text="Prezime" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="347,206,0,0" Text="Adresa" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Pretrazi" Name="Prezime" Click="Prezime_Click" HorizontalAlignment="Left" Margin="261,229,0,0" VerticalAlignment="Top"/>
 
 
 

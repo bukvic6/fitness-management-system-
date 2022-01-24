@@ -53,7 +53,7 @@ namespace SR22_2020_POP2021
                     
 
                 }
-                else if (k.JMBG == txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.POLAZNIK)
+                else if (k.JMBG == txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.INSTRUKTOR)
                 {
                     Util.Instance.jmbgPrijavljen7 = k.JMBG;
 
@@ -63,10 +63,22 @@ namespace SR22_2020_POP2021
 
                     break;
 
+                }
+                else if (k.JMBG == txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.POLAZNIK)
+                {
+                    Util.Instance.jmbgPrijavljen7 = k.JMBG;
+
+                    PolaznikWindow polaznikWindow = new PolaznikWindow();
+                    this.Hide();
+                    polaznikWindow.Show();
+
+                    break;
+
 
 
 
                 }
+
 
 
 

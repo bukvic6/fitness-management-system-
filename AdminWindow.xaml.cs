@@ -25,12 +25,14 @@ namespace SR22_2020_POP2021
     {
         private ICollectionView view;
         private ICollectionView view2;
+        private ICollectionView view3;
 
         public AdminWindow()
         {
             InitializeComponent();
             UpdateView();
             UpdateView2();
+            UpdateView3();
         }
         private void UpdateView()
         {
@@ -60,6 +62,19 @@ namespace SR22_2020_POP2021
 
 
         }
+        private void UpdateView3()
+        {
+            GDTreninzi.ItemsSource = null;
+            view3 = new CollectionViewSource { Source = Util.Instance.Treninzi }.View;
+            view3.Filter = CustomFilter3;
+            view3.Refresh();
+            GDTreninzi.IsSynchronizedWithCurrentItem = true;
+            GDTreninzi.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            GDTreninzi.ItemsSource = view3;
+
+
+
+        }
         private bool CustomFilter2(Object obj)
         {
             RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
@@ -70,47 +85,59 @@ namespace SR22_2020_POP2021
             }
             return false;
         }
+        private bool CustomFilter3(Object obj)
+        {
+            Trening trening = obj as Trening;
+
+            if (trening.Aktivan)
+            {
+
+                return true;
+            }
+            return false;
+        }
 
 
         private bool CustomFilter(Object obj)
         {
             RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
 
-            if(korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && korisnik.Aktivan)
-            {
-
-                return true;
-            }
-            return false;
-        }
-        private bool CustomFilterPretraga(Object obj)
-        {
-            RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
-
             if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && korisnik.Aktivan)
             {
 
-                using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
-                {
-                    conn.Open();
-
-                    SqlCommand command = conn.CreateCommand();
-                    command.CommandText = @"select * from korisnici where Ime = @ime";
-                    command.Parameters.AddWithValue("@ime", pretragaTxtBox.Text);
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-                        DGInstruktori.ItemsSource = dt.DefaultView;
-
-                    }
-
-
-                }
                 return true;
             }
+
             return false;
         }
+        //private bool CustomFilterPretraga(Object obj)
+        //{
+        //    RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
+
+        //    if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && korisnik.Aktivan)
+        //    {
+
+        //        using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+        //        {
+        //            conn.Open();
+
+        //            SqlCommand command = conn.CreateCommand();
+        //            command.CommandText = @"select * from korisnici where Ime = @ime";
+        //            command.Parameters.AddWithValue("@ime", pretragaTxtBox.Text);
+        //            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+        //            {
+        //                DataTable dt = new DataTable();
+        //                adapter.Fill(dt);
+        //                DGInstruktori.ItemsSource = dt.DefaultView;
+
+        //            }
+
+
+        //        }
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         private void Izmena_Click(object sender, RoutedEventArgs e)
         {
@@ -162,7 +189,7 @@ namespace SR22_2020_POP2021
 
         private void Pretraga_Click(object sender, RoutedEventArgs e)
         {
-            view.Filter = CustomFilterPretraga;
+            
 
             view.Refresh();
 
@@ -205,6 +232,29 @@ namespace SR22_2020_POP2021
             AddEditTrening treningWindow = new AddEditTrening();
             this.Hide();
             treningWindow.Show();
+        }
+
+        private void GDTreninzi_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+
+        }
+
+        private void ObrisiTrening_Click(object sender, RoutedEventArgs e)
+        {
+            Trening treningZaBrisanje = view3.CurrentItem as Trening;
+            Util.Instance.BrisanjeTreninga(treningZaBrisanje.Id);
+
+            int index = Util.Instance.Treninzi.ToList().FindIndex(tr => tr.Id.Equals(treningZaBrisanje.Id));
+            Util.Instance.Korisnici[index].Aktivan = false;
+
+            UpdateView();
+            view.Refresh();
+
+        }
+
+        private void Prezime_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

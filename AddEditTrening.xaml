@@ -13,9 +13,9 @@
         <Label Content="Vreme pocetka treninga" HorizontalAlignment="Left" Margin="80,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.08,0.579"/>
         <TextBox x:Name="vreme" HorizontalAlignment="Left" Margin="274,210,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Trajanje treninga u min" HorizontalAlignment="Left" Margin="85,270,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Trajanje" HorizontalAlignment="Center" Margin="0,270,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Trajanje" HorizontalAlignment="Left" Margin="280,280,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Jmbg instruktora" HorizontalAlignment="Left" Margin="106,335,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="JmbgInstr" HorizontalAlignment="Center" Margin="0,335,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="JmbgInstr" HorizontalAlignment="Left" Margin="280,340,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Cancel" Click="Cancel_Click" HorizontalAlignment="Left" Margin="615,270,0,0" VerticalAlignment="Top"/>
         <Button Content="Dodeli" Click="Dodaj_Click" HorizontalAlignment="Left" Margin="615,348,0,0" VerticalAlignment="Top"/>
 

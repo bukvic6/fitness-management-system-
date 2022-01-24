@@ -6,11 +6,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SR22_2020_POP2021.Model;
+using SR22_2020_POP2021.MojiIzuzeci;
 
 namespace SR22_2020_POP2021.Services
 {
     class TreningService: ITreningService
     {
+        public void DeleteTrening(int id)
+        {
+            Trening trening = Util.Instance.Treninzi.ToList().Find(tr => tr.Id.Equals(id));
+            if (trening == null)
+            {
+                throw new UserNotFoundExeption($"Ne postoji");
+            }
+            trening.Aktivan = false;
+            IzmeniTrening(trening);
+        }
+
+        public void IzmeniTrening(object obj)
+        {
+            Trening trening = obj as Trening;
+            using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+            {
+                conn.Open();
+                SqlCommand command = conn.CreateCommand();
+
+                command.CommandText = @"update dbo.trening set Aktivan = @Aktivan  where id= @Id";
+                command.Parameters.Add(new SqlParameter("Aktivan", trening.Aktivan));
+                command.Parameters.Add(new SqlParameter("Id", trening.Id));
+                command.ExecuteNonQuery();
+
+            }
+        }
+
         public void ReadTrening()
         {
             Util.Instance.Treninzi = new ObservableCollection<Trening>();
@@ -65,4 +93,5 @@ output inserted.id VALUES(@datumTreninga,@vremePocetka,@trajanjeTreninga,@status
             }
         }
     }
+
 }

@@ -103,6 +103,7 @@ namespace SR22_2020_POP2021.Model
             _adresa = adresa;
          }
         public RegistrovaniKorisnik() { }
+        
 
         public RegistrovaniKorisnik(int id, string ime, string prezime, ETipKorisnika tip, string jmbg, string email, bool aktivan, string lozinka, Adresa adresa)
         {

@@ -10,5 +10,9 @@ namespace SR22_2020_POP2021.Services
     {
         int SaveTrening(Object obj);
         void ReadTrening();
+        void DeleteTrening(int id);
+
+        void IzmeniTrening(Object obj);
     }
 }
+

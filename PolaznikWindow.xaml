@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="PolaznikWindow" Height="450" Width="800">
     <Grid>
-        
+        <DataGrid CanUserAddRows="False" x:Name="DGInstruktori" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn" HorizontalAlignment="Center" Height="103" Margin="0,86,0,0" VerticalAlignment="Top" Width="204"/>
+        <Button x:Name="RezervisiTrening" Click="RezervisiTrening_Click" Content="Button" HorizontalAlignment="Left" Margin="360,217,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

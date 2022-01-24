@@ -90,6 +90,11 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
         {
             userService.DeleteUser(email);
         }
+        public void BrisanjeTreninga(int id)
+        {
+            treningService.DeleteTrening(id);
+        }
+
         //public void izmena(Object obj)
         //{
         //    userService.Izmena(obj);
