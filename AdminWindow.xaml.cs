@@ -33,6 +33,9 @@ namespace SR22_2020_POP2021
             UpdateView();
             UpdateView2();
             UpdateView3();
+            PretragaB.Items.Add("Pretrazi po Imenu");
+            PretragaB.Items.Add("Pretrazi po Prezimenu");
+            PretragaB.Items.Add("Pretrazi po Emailu");
         }
         private void UpdateView()
         {
@@ -102,7 +105,7 @@ namespace SR22_2020_POP2021
         {
             RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
 
-            if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && korisnik.Aktivan)
+            if (!korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR) && korisnik.Aktivan)
             {
 
                 return true;
@@ -110,34 +113,37 @@ namespace SR22_2020_POP2021
 
             return false;
         }
-        //private bool CustomFilterPretraga(Object obj)
-        //{
-        //    RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
+        private bool CustomFilterPretraga(Object obj)
+        {
+            RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
 
-        //    if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && korisnik.Aktivan)
-        //    {
+            if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && korisnik.Aktivan)
+            {
+                if (PretragaB.SelectedIndex == 0)
+                {
 
-        //        using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
-        //        {
-        //            conn.Open();
+                    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                    {
+                        conn.Open();
 
-        //            SqlCommand command = conn.CreateCommand();
-        //            command.CommandText = @"select * from korisnici where Ime = @ime";
-        //            command.Parameters.AddWithValue("@ime", pretragaTxtBox.Text);
-        //            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-        //            {
-        //                DataTable dt = new DataTable();
-        //                adapter.Fill(dt);
-        //                DGInstruktori.ItemsSource = dt.DefaultView;
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = @"select * from korisnici where Ime = @ime";
+                        command.Parameters.AddWithValue("@ime", pretrazi.Text);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            DGInstruktori.ItemsSource = dt.DefaultView;
 
-        //            }
+                        }
 
 
-        //        }
-        //        return true;
-        //    }
-        //    return false;
-        //}
+                    }
+                }
+                
+            }
+            return false;
+        }
 
         private void Izmena_Click(object sender, RoutedEventArgs e)
         {
@@ -245,7 +251,7 @@ namespace SR22_2020_POP2021
             Util.Instance.BrisanjeTreninga(treningZaBrisanje.Id);
 
             int index = Util.Instance.Treninzi.ToList().FindIndex(tr => tr.Id.Equals(treningZaBrisanje.Id));
-            Util.Instance.Korisnici[index].Aktivan = false;
+            Util.Instance.Treninzi[index].Aktivan = false;
 
             UpdateView();
             view.Refresh();
@@ -254,6 +260,14 @@ namespace SR22_2020_POP2021
 
         private void Prezime_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void PretraziKlik_Click(object sender, RoutedEventArgs e)
+        {
+            view.Filter = CustomFilterPretraga;
+            view.Refresh();
+
 
         }
     }

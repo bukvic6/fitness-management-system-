@@ -38,6 +38,36 @@ namespace SR22_2020_POP2021.Services
 
             }
         }
+        public void RezervisiTrening(int id)
+        {
+            Trening trening = Util.Instance.Treninzi.ToList().Find(tr => tr.Id.Equals(id));
+            if (trening == null)
+            {
+                throw new UserNotFoundExeption($"Ne postoji");
+            }
+            trening.StatusTreninga = EStatusTreninga.REZERVISAN;
+            trening.PolaznikJmbg = Util.Instance.jmbgPrijavljen7;
+            IzmeniTreningZaRezervaciju(trening);
+        }
+
+
+        public void IzmeniTreningZaRezervaciju(object obj)
+        {
+            Trening trening = obj as Trening;
+            using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+            {
+                conn.Open();
+                SqlCommand command = conn.CreateCommand();
+
+                command.CommandText = @"update dbo.trening set statusTreninga = @statusTreninga, jmbgPolaznika = @jmbgPolaznika  where id= @Id";
+                command.Parameters.Add(new SqlParameter("statusTreninga", trening.StatusTreninga));
+                command.Parameters.Add(new SqlParameter("jmbgPolaznika", trening.PolaznikJmbg));
+                command.Parameters.Add(new SqlParameter("Id", trening.Id));
+                command.ExecuteNonQuery();
+
+            }
+        }
+
 
         public void ReadTrening()
         {
@@ -60,7 +90,9 @@ namespace SR22_2020_POP2021.Services
                         TrajanjeTreninga = reader.GetInt32(3),
                         StatusTreninga = (EStatusTreninga)Enum.Parse(typeof(EStatusTreninga), reader.GetString(4)),
                         InstruktorJmbg = reader.GetString(5),
-                        
+                        PolaznikJmbg = reader.GetString(6),
+
+
                         Aktivan = reader.GetBoolean(7),
 
                         
@@ -84,7 +116,6 @@ output inserted.id VALUES(@datumTreninga,@vremePocetka,@trajanjeTreninga,@status
                 command.Parameters.Add(new SqlParameter("trajanjeTreninga", trening.TrajanjeTreninga));
                 command.Parameters.Add(new SqlParameter("statusTreninga", trening.StatusTreninga.ToString()));
                 command.Parameters.Add(new SqlParameter("jmbgInstruktora", trening.InstruktorJmbg));
-               
                 command.Parameters.Add(new SqlParameter("aktivan", trening.Aktivan));
 
 

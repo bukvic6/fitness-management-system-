@@ -9,7 +9,7 @@
     <Grid>
         <Label Name="lblWelcome">
         </Label>
-        <Button Name ="btnLogin" Content="Login" Click = "BtnLogin_Click"  Margin="285,55,284.6,321"/>
+        <Button Background="AntiqueWhite" FontFamily="Times new roman" Name ="btnLogin" Content="Login" Click = "BtnLogin_Click"  Margin="285,55,284.6,321"/>
         <Button Name ="btnFitnesCentar" Content="FitnesCentar" Click="BtnFitnesCentar_Click" Margin="287,291,282.6,85"/>
         <Button Name ="btnRegistracija" Content="Registracija" Click="BtnRegistracija_Click" Margin="286,178,282.6,197"/>
 

@@ -67,5 +67,24 @@ namespace SR22_2020_POP2021
         {
 
         }
+
+
+        private void Rezervacija_Click(object sender, RoutedEventArgs e)
+        {
+            Trening treningZaRezervaciju = view.CurrentItem as Trening;
+            Util.Instance.RezervacijaTreninga(treningZaRezervaciju.Id);
+
+            int index = Util.Instance.Treninzi.ToList().FindIndex(tr => tr.Id.Equals(treningZaRezervaciju.Id));
+            Util.Instance.Treninzi[index].StatusTreninga = EStatusTreninga.REZERVISAN;
+            Util.Instance.Treninzi[index].PolaznikJmbg = Util.Instance.jmbgPrijavljen7;
+
+
+        }
+
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

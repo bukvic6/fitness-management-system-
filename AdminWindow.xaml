@@ -15,13 +15,11 @@
         <Button Content="Izmena licnih informacija" Click="IzmenaP_Click" HorizontalAlignment="Center" Margin="0,504,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Dodaj novi trening" Click="BP_Click" HorizontalAlignment="Left" Margin="704,278,0,0" VerticalAlignment="Top" Width="75"/>
         <DataGrid CanUserAddRows="False" Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Center" Height="47" Margin="0,415,0,0" VerticalAlignment="Top" Width="584"/>
-        <Button Content="Pretrazi" Click="Pretraga_Click" Name="pretrazi" HorizontalAlignment="Left" Margin="134,229,0,0" VerticalAlignment="Top"/>
-        <TextBox Text="Ime" Name="pretragaTxtBox" TextWrapping="Wrap" Margin="115,206,584,0" Height="18" VerticalAlignment="Top"/>
         <DataGrid CanUserAddRows="False" x:Name="GDTreninzi" AutoGeneratingColumn="GDTreninzi_AutoGeneratingColumn" HorizontalAlignment="Center" Height="129" Margin="0,254,0,0" VerticalAlignment="Top" Width="576"/>
         <Button Content="Obrisi trening" Click="ObrisiTrening_Click" HorizontalAlignment="Left" Margin="702,338,0,0" VerticalAlignment="Top"/>
-        <TextBox  HorizontalAlignment="Left" Margin="221,206,0,0" Text="Prezime" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="347,206,0,0" Text="Adresa" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Pretrazi" Name="Prezime" Click="Prezime_Click" HorizontalAlignment="Left" Margin="261,229,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="PretragaB" HorizontalAlignment="Left" Margin="289,206,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="pretrazi" HorizontalAlignment="Left" Margin="481,215,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="PretraziKlik" Click="PretraziKlik_Click" Content="Pretrazi" HorizontalAlignment="Left" Margin="659,217,0,0" VerticalAlignment="Top"/>
 
 
 
