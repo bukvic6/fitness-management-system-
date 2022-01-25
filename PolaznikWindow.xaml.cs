@@ -116,5 +116,10 @@ namespace SR22_2020_POP2021
             view.Refresh();
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

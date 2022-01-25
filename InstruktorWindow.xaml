@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SR22_2020_POP2021"
         mc:Ignorable="d"
-        Title="InstruktorWindow" Height="450" Width="800">
+        Title="InstruktorWindow" Height="600" Width="600">
     <Grid>
-        <Label Content="Lista sopstvenih trening" HorizontalAlignment="Left" Margin="374,66,0,0" VerticalAlignment="Top"/>
+        <Grid.Background>
+            <ImageBrush
+                ImageSource="C:\Users\Milica\Source\Repos\Projekat C#\Resources\meni1.jpg"></ImageBrush>
+        </Grid.Background>
+        <Label Background="White" Content="Lista sopstvenih trening" HorizontalAlignment="Left" Margin="374,61,0,0" VerticalAlignment="Top"/>
         <DataGrid Name="DGTreninzi" AutoGeneratingColumn="DGTreninzi_AutoGeneratingColumn" HorizontalAlignment="Center" Height="151" VerticalAlignment="Top" Width="576" RenderTransformOrigin="0.518,0.117" Margin="0,92,0,0" />
 
-        <DataGrid Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Left" Height="100" Margin="79,295,0,0" VerticalAlignment="Top" Width="583"/>
-        <Label Content="Licne Informacije" HorizontalAlignment="Left" Margin="290,264,0,0" VerticalAlignment="Top"/>
+        <DataGrid Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Center" Height="39" Margin="0,295,0,0" VerticalAlignment="Top" Width="584"/>
+        <Label Background="Bisque" Content="Licne Informacije" HorizontalAlignment="Center" Margin="0,264,0,0" VerticalAlignment="Top"/>
+        <Button Background="BlanchedAlmond" Content="Obrisi trening" Name="BrisanjeTreninga" Click="BrisanjeTreninga_Click" HorizontalAlignment="Left" Margin="155,66,0,0" VerticalAlignment="Top"/>
+        <Button Content="Odjavite se" Click="Objava_Click" HorizontalAlignment="Left" Margin="465,464,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

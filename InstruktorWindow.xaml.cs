@@ -103,5 +103,19 @@ namespace SR22_2020_POP2021
 
         }
 
+        private void Odjava_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BrisanjeTreninga_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

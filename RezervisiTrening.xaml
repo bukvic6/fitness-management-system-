@@ -5,13 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SR22_2020_POP2021"
         mc:Ignorable="d"
-        Title="RezervisiTrening" Height="450" Width="800">
+        Title="RezervisiTrening" Height="600" Width="600">
     <Grid>
-        <DataGrid CanUserAddRows="False" x:Name="GDTreninzi" AutoGeneratingColumn="GDTreninzi_AutoGeneratingColumn" HorizontalAlignment="Left" Height="129" Margin="115,104,0,0" VerticalAlignment="Top" Width="576"/>
-        <TextBox HorizontalAlignment="Left" Margin="275,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Path=Prezime}"/>
-        <TextBox HorizontalAlignment="Left" Margin="400,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Path=Prezime}"/>
+        <Grid.Background>
+            <ImageBrush
+                ImageSource="C:\Users\Milica\Source\Repos\Projekat C#\Resources\meni2.jpg"></ImageBrush>
+        </Grid.Background>
+        <DataGrid CanUserAddRows="False" x:Name="GDTreninzi" AutoGeneratingColumn="GDTreninzi_AutoGeneratingColumn" HorizontalAlignment="Left" Height="129" Margin="50,104,0,0" VerticalAlignment="Top" Width="461"/>
+        <TextBox HorizontalAlignment="Left" Margin="180,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Path=Prezime}"/>
+        <TextBox HorizontalAlignment="Left" Margin="306,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Path=Prezime}"/>
         <Label Content="Pregled treninga odabranog instruktora" HorizontalAlignment="Center" Margin="0,47,0,0" VerticalAlignment="Top"/>
-        <Button Click="Rezervacija_Click" Content="Rezervisite odabrani termin" HorizontalAlignment="Center" Margin="0,273,0,0" VerticalAlignment="Top"/>
+        <Button FontFamily="times new roman" FontSize="20" Click="Rezervacija_Click" Content="Rezervisite odabrani termin" HorizontalAlignment="Center" Margin="0,259,0,0" VerticalAlignment="Top"/>
         <Button Click="Cancel_Click" Content="Povratak" HorizontalAlignment="Left" Margin="378,323,0,0" VerticalAlignment="Top"/>
 
 

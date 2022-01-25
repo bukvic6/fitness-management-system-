@@ -5,21 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SR22_2020_POP2021"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="650" Width="800">
+        Title="AdminWindow" Height="800" Width="800">
     <Grid>
-        <Button Content="Dodavanje" Click="Dodavanje_Click" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Izmena" Click="Izmena_Click" HorizontalAlignment="Left" Margin="262,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Grid.Background>
+            <ImageBrush
+                ImageSource="C:\Users\Milica\Source\Repos\Projekat C#\Resources\meni1.jpg"></ImageBrush>
+        </Grid.Background>
+        <Button FontSize="20" FontFamily="times new roman" Content="Dodavanje" Click="Dodavanje_Click" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button FontSize="20" FontFamily="times new roman" Content="Izmena" Click="Izmena_Click" HorizontalAlignment="Left" Margin="262,10,0,0" VerticalAlignment="Top" Width="75"/>
         <DataGrid CanUserAddRows="False" Name="DGInstruktori" AutoGeneratingColumn="DGInstruktori_AutoGeneratingColumn" HorizontalAlignment="Center" Height="151" Margin="0,37,0,0" VerticalAlignment="Top" Width="576" />
-        <Button Content="Brisanje" Click="Brisanje_Click" HorizontalAlignment="Left" Margin="347,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button FontSize="20" FontFamily="times new roman" Content="Brisanje" Click="Brisanje_Click" HorizontalAlignment="Left" Margin="347,10,0,0" VerticalAlignment="Top" Width="75"/>
 
-        <Button Content="Izmena licnih informacija" Click="IzmenaP_Click" HorizontalAlignment="Center" Margin="0,504,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Dodaj novi trening" Click="BP_Click" HorizontalAlignment="Left" Margin="704,278,0,0" VerticalAlignment="Top" Width="75"/>
-        <DataGrid CanUserAddRows="False" Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Center" Height="47" Margin="0,415,0,0" VerticalAlignment="Top" Width="584"/>
-        <DataGrid CanUserAddRows="False" x:Name="GDTreninzi" AutoGeneratingColumn="GDTreninzi_AutoGeneratingColumn" HorizontalAlignment="Center" Height="129" Margin="0,254,0,0" VerticalAlignment="Top" Width="576"/>
-        <Button Content="Obrisi trening" Click="ObrisiTrening_Click" HorizontalAlignment="Left" Margin="702,338,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="PretragaB" HorizontalAlignment="Left" Margin="289,206,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="pretrazi" HorizontalAlignment="Left" Margin="481,215,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="PretraziKlik" Click="PretraziKlik_Click" Content="Pretrazi" HorizontalAlignment="Left" Margin="659,217,0,0" VerticalAlignment="Top"/>
+        <Button Content="Izmena licnih informacija" Click="IzmenaP_Click" HorizontalAlignment="Center" Margin="0,649,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button FontSize="20" FontFamily="times new roman" Content="Dodaj novi"  Click="BP_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="139" Margin="245,404,0,0"/>
+        <DataGrid CanUserAddRows="False" Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Center" Height="47" Margin="0,557,0,0" VerticalAlignment="Top" Width="584"/>
+        <DataGrid CanUserAddRows="False" x:Name="GDTreninzi" AutoGeneratingColumn="GDTreninzi_AutoGeneratingColumn" HorizontalAlignment="Center" Height="129" Margin="0,263,0,0" VerticalAlignment="Top" Width="576"/>
+        <Button FontSize="20" FontFamily="times new roman" Content="Obrisi trening" Click="ObrisiTrening_Click" HorizontalAlignment="Left" Margin="455,405,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="PretragaB" HorizontalAlignment="Left" Margin="245,202,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="pretrazi" HorizontalAlignment="Left" Margin="371,204,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button FontSize="20" FontFamily="times new roman" x:Name="PretraziKlik" Click="PretraziKlik_Click" Content="Pretrazi" HorizontalAlignment="Left" Margin="537,197,0,0" VerticalAlignment="Top"/>
+        <Button FontSize="20" FontFamily="times new roman" Name="odjava" Click="odjava_Click" Content="Odjavite se" HorizontalAlignment="Left" Margin="660,684,0,0" VerticalAlignment="Top"/>
 
 
 

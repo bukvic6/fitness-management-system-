@@ -56,6 +56,117 @@ namespace SR22_2020_POP2021
            
 
         }
+        private bool CustomFilterPretraga(Object obj)
+        {
+            RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
+
+            if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && korisnik.Aktivan)
+            {
+                if (PretragaB.SelectedIndex == 0)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                    {
+                        conn.Open();
+
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = @"select * from korisnici where Ime = @ime";
+                        command.Parameters.AddWithValue("@ime", pretrazi.Text);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            DGInstruktori.ItemsSource = dt.DefaultView;
+
+                        }
+
+
+                    }
+                }
+                else if (PretragaB.SelectedIndex == 1)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                    {
+                        conn.Open();
+
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = @"select * from korisnici where Prezime = @prezime";
+                        command.Parameters.AddWithValue("@prezime", pretrazi.Text);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            DGInstruktori.ItemsSource = dt.DefaultView;
+
+                        }
+
+
+                    }
+                }
+                else if (PretragaB.SelectedIndex == 2)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                    {
+                        conn.Open();
+
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = @"select * from korisnici where Email = @email";
+                        command.Parameters.AddWithValue("@email", pretrazi.Text);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            DGInstruktori.ItemsSource = dt.DefaultView;
+
+                        }
+
+                    }
+                }
+                else if (PretragaB.SelectedIndex == 3)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                    {
+                        conn.Open();
+
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = @"select * from korisnici where TipKorisnika = @tipKorisnika";
+                        command.Parameters.AddWithValue("@tipKorisnika", pretrazi.Text);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            DGInstruktori.ItemsSource = dt.DefaultView;
+
+                        }
+
+                    }
+                }
+                else if (PretragaB.SelectedIndex == 4)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                    {
+                        conn.Open();
+
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = @"select * from korisnici where Ulica = @ulica";
+                        command.Parameters.AddWithValue("@ulica", pretrazi.Text);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            DGInstruktori.ItemsSource = dt.DefaultView;
+                        }
+
+                    }
+                }
+
+            }
+            return false;
+        }
 
         private void DGInstruktori_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {

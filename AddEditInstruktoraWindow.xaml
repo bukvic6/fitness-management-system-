@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="AddEditInstruktoraWindow" Height="550" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush
+                ImageSource="C:\Users\Milica\Source\Repos\Projekat C#\Resources\meni2.jpg"></ImageBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>

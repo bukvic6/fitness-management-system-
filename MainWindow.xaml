@@ -5,13 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SR22_2020_POP2021"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="600">
     <Grid>
+        <Grid.Background>
+            <ImageBrush
+                ImageSource="C:\Users\Milica\Source\Repos\Projekat C#\Resources\login.jpg"></ImageBrush>
+        </Grid.Background>
         <Label Name="lblWelcome">
         </Label>
-        <Button Background="AntiqueWhite" FontFamily="Times new roman" Name ="btnLogin" Content="Login" Click = "BtnLogin_Click"  Margin="285,55,284.6,321"/>
-        <Button Name ="btnFitnesCentar" Content="FitnesCentar" Click="BtnFitnesCentar_Click" Margin="287,291,282.6,85"/>
-        <Button Name ="btnRegistracija" Content="Registracija" Click="BtnRegistracija_Click" Margin="286,178,282.6,197"/>
+        <Button Background="AntiqueWhite" FontFamily="Times new roman" Name ="btnLogin" Content="Login" Click = "BtnLogin_Click"  Width ="150" Height="30" Margin="225,83,225,471"/>
+        <Button Background="AntiqueWhite" FontFamily="Times new roman" Name ="btnFitnesCentar" Content="FitnesCentar" Click="BtnFitnesCentar_Click" Width ="150" Height="30" Margin="257,171,193,383"/>
+        <Button Background="AntiqueWhite" FontFamily="Times new roman" Name ="btnRegistracija" Content="Registracija" Click="BtnRegistracija_Click" Width ="150" Height="30" Margin="287,263,163,291"/>
 
     </Grid>
 </Window>

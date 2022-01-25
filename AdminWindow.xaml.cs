@@ -36,6 +36,8 @@ namespace SR22_2020_POP2021
             PretragaB.Items.Add("Pretrazi po Imenu");
             PretragaB.Items.Add("Pretrazi po Prezimenu");
             PretragaB.Items.Add("Pretrazi po Emailu");
+            PretragaB.Items.Add("Pretrazi po Tipu");
+            PretragaB.Items.Add("Pretrazi po Ulici");
         }
         private void UpdateView()
         {
@@ -140,7 +142,87 @@ namespace SR22_2020_POP2021
 
                     }
                 }
-                
+                else if (PretragaB.SelectedIndex == 1)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                    {
+                        conn.Open();
+
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = @"select * from korisnici where Prezime = @prezime";
+                        command.Parameters.AddWithValue("@prezime", pretrazi.Text);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            DGInstruktori.ItemsSource = dt.DefaultView;
+
+                        }
+
+
+                    }
+                }
+                else if (PretragaB.SelectedIndex == 2)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                    {
+                        conn.Open();
+
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = @"select * from korisnici where Email = @email";
+                        command.Parameters.AddWithValue("@email", pretrazi.Text);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            DGInstruktori.ItemsSource = dt.DefaultView;
+
+                        }
+
+                    }
+                }
+                else if (PretragaB.SelectedIndex == 3)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                    {
+                        conn.Open();
+
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = @"select * from korisnici where TipKorisnika = @tipKorisnika";
+                        command.Parameters.AddWithValue("@tipKorisnika", pretrazi.Text);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            DGInstruktori.ItemsSource = dt.DefaultView;
+
+                        }
+
+                    }
+                }
+                else if (PretragaB.SelectedIndex == 4)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                    {
+                        conn.Open();
+
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = @"select * from korisnici where Ulica = @ulica";
+                        command.Parameters.AddWithValue("@ulica", pretrazi.Text);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            DGInstruktori.ItemsSource = dt.DefaultView;
+                        }
+
+                    }
+                }
+
             }
             return false;
         }
@@ -268,6 +350,11 @@ namespace SR22_2020_POP2021
             view.Filter = CustomFilterPretraga;
             view.Refresh();
 
+
+        }
+
+        private void odjava_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
