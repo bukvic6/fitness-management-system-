@@ -355,7 +355,9 @@ namespace SR22_2020_POP2021
 
         private void odjava_Click(object sender, RoutedEventArgs e)
         {
-
+            var mv = new MainWindow();
+            mv.Show();
+            this.Close();
         }
     }
 }

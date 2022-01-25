@@ -117,5 +117,10 @@ namespace SR22_2020_POP2021
         {
 
         }
+
+        private void Objava_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
