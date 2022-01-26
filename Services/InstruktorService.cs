@@ -50,7 +50,8 @@ namespace SR22_2020_POP2021.Services
                         TipKorisnika = (ETipKorisnika)Enum.Parse(typeof(ETipKorisnika), reader.GetString(3)),
                         Aktivan = reader.GetBoolean(5),
                         JMBG = reader.GetString(6),
-                        Lozinka = reader.GetString(7),                 
+                        Lozinka = reader.GetString(7),
+                        Pol = (EPol)Enum.Parse(typeof(EPol), reader.GetString(12)),
                         Adresa = a
 
                 }); ;

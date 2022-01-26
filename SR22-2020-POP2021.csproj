@@ -64,8 +64,14 @@
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DodajTreningWindow.xaml.cs">
+      <DependentUpon>DodajTreningWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InstruktorWindow.xaml.cs">
       <DependentUpon>InstruktorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IzmenaLicnihInfoWindow.xaml.cs">
+      <DependentUpon>IzmenaLicnihInfoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -113,7 +119,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DodajTreningWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InstruktorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IzmenaLicnihInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

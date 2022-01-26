@@ -9,18 +9,22 @@
 
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush
+                ImageSource="C:\Users\Milica\Source\Repos\Projekat C#\Resources\meni2.jpg"></ImageBrush>
+        </Grid.Background>
 
         <Label Content="Dodeli trening instruktoru" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top"/>
-        <DatePicker Name="DatePicker" HorizontalAlignment="Left" Margin="269,132,0,0" VerticalAlignment="Top"/>
-        <Label Content="Datum pocetka treninga" HorizontalAlignment="Left" Margin="80,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-0.037"/>
-        <Label Content="Vreme pocetka treninga" HorizontalAlignment="Left" Margin="81,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.08,0.579"/>
-        <TextBox x:Name="vreme" HorizontalAlignment="Left" Margin="261,210,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Trajanje treninga u min" HorizontalAlignment="Left" Margin="85,270,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Trajanje" HorizontalAlignment="Left" Margin="260,280,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Jmbg instruktora" HorizontalAlignment="Left" Margin="106,335,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="JmbgInstr" HorizontalAlignment="Left" Margin="280,340,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Cancel" Click="Cancel_Click" HorizontalAlignment="Left" Margin="615,270,0,0" VerticalAlignment="Top"/>
-        <Button Content="Dodeli" Click="Dodaj_Click" HorizontalAlignment="Left" Margin="615,348,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="DatePicker" HorizontalAlignment="Center" Margin="0,132,0,0" VerticalAlignment="Top"/>
+        <Label Background="GhostWhite" Content="Datum pocetka treninga" HorizontalAlignment="Left" Margin="52,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-0.037"/>
+        <Label Background="GhostWhite" Content="Vreme pocetka treninga" HorizontalAlignment="Left" Margin="52,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.08,0.579"/>
+        <TextBox x:Name="vreme" HorizontalAlignment="Center" Margin="0,201,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Background="GhostWhite" Content="Trajanje treninga u min" HorizontalAlignment="Left" Margin="54,270,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Trajanje" HorizontalAlignment="Center" Margin="0,274,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Background="GhostWhite" Content="Jmbg instruktora" HorizontalAlignment="Left" Margin="68,335,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="JmbgInstr" HorizontalAlignment="Left" Margin="243,340,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Cancel" Click="Cancel_Click" HorizontalAlignment="Left" Margin="249,399,0,0" VerticalAlignment="Top"/>
+        <Button Content="Dodeli" Click="Dodaj_Click" HorizontalAlignment="Left" Margin="118,399,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

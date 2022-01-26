@@ -1,11 +1,11 @@
-﻿<Window x:Class="SR22_2020_POP2021.AddEditInstruktoraWindow"
+﻿<Window x:Class="SR22_2020_POP2021.IzmenaLicnihInfoWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SR22_2020_POP2021"
         mc:Ignorable="d"
-        Title="AddEditInstruktoraWindow" Height="550" Width="800">
+        Title="IzmenaLicnihInfoWindow" Height="600" Width="600">
     <Grid>
         <Grid.Background>
             <ImageBrush
@@ -26,8 +26,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
-            
+
         </Grid.RowDefinitions>
 
         <Label Name="lvlIme" Content="Ime" Grid.Row="0" Grid.Column="0"/>
@@ -43,7 +42,7 @@
         <Label Name="lblEmail" Content="Email" Grid.Row="3" Grid.Column="0"/>
         <TextBox Name="txtEmail" Grid.Row="3" Grid.Column="1" Text="{Binding Path=Email}"/>
 
-        
+
         <Label Name="lblAdresa" Content="Adresa" Grid.Row="6" Grid.Column="0"/>
         <TextBox Name="txtUlica" Grid.Row="6" Grid.Column="1" Text="{Binding Path=Adresa.Ulica}"/>
 
@@ -53,19 +52,16 @@
         <Label Name="lblGrad" Content="Grad" Grid.Row="8" Grid.Column="0"/>
         <TextBox Name="txtGrad" Grid.Row="8" Grid.Column="1" Text="{Binding Path=Adresa.Grad}"/>
 
-        <Label Name="lblDrzava" Content="Drzava" Grid.Row="9" Grid.Column="0"/>
-        <TextBox Name="txtDrzava" Grid.Row="9" Grid.Column="1" Text="{Binding Path=Adresa.Drzava}"/>
+        <Label Name="lblDrzava" Content="Drzava" Grid.Row="5" Grid.Column="0"/>
+        <TextBox Name="txtDrzava" Grid.Row="5" Grid.Column="1" Text="{Binding Path=Adresa.Drzava}"/>
 
 
+        <Label Name="lblLozinka" Content="Lozinka" Grid.Row="4" Grid.Column="0"/>
+        <TextBox Name="txtLozinka" Grid.Row="4" Grid.Column="1" Text="{Binding Path=Lozinka}"/>
 
-        <Label Name="lblPol" Content="Pol" Grid.Row="4" Grid.Column="0"/>
-        <ComboBox Grid.Column="1" Grid.Row="4" Name="ComboPol" SelectedItem="{Binding Path=Pol}" />
+        <Button Name="btnCancel" Click="btnCancel_Click" Content="Cancel" Grid.Row="11" Grid.Column="0"/>
+        <Button Name="btnOk" Click="BtnOk_Click" Content="OK" Grid.Row="11" Grid.Column="1"/>
 
-        <Label Name="lblLozinka" Content="Lozinka" Grid.Row="5" Grid.Column="0"/>
-        <TextBox Name="txtLozinka" Grid.Row="5" Grid.Column="1" Text="{Binding Path=Lozinka}"/>
-
-        <Button FontFamily="times new roman" Name="btnCancel" Click="btnCancel_Click" Content="Cancel" Grid.Row="11" Grid.Column="0"/>
-        <Button FontFamily="times new roman" Name="btnOk" Click="BtnOk_Click" Content="OK" Grid.Row="11" Grid.Column="1"/>
 
 
 

@@ -38,6 +38,7 @@ namespace SR22_2020_POP2021
             PretragaB.Items.Add("Pretrazi po Emailu");
             PretragaB.Items.Add("Pretrazi po Tipu");
             PretragaB.Items.Add("Pretrazi po Ulici");
+            PretragaB.Items.Add("Pretrazi po Gradu");
         }
         private void UpdateView()
         {
@@ -222,6 +223,25 @@ namespace SR22_2020_POP2021
 
                     }
                 }
+                else if (PretragaB.SelectedIndex == 5)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+                    {
+                        conn.Open();
+
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = @"select * from korisnici where Grad = @grad";
+                        command.Parameters.AddWithValue("@grad", pretrazi.Text);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            DGInstruktori.ItemsSource = dt.DefaultView;
+                        }
+
+                    }
+                }
 
             }
             return false;
@@ -296,14 +316,25 @@ namespace SR22_2020_POP2021
 
         private void IzmenaP_Click(object sender, RoutedEventArgs e)
         {
+            RegistrovaniKorisnik korisnikZaIzmenu = view.CurrentItem as RegistrovaniKorisnik;
+
+            RegistrovaniKorisnik stariKorisnik = korisnikZaIzmenu.Clone();
+
+            IzmenaLicnihInfoWindow izmenaLicnihInfo = new IzmenaLicnihInfoWindow(korisnikZaIzmenu);
+            this.Hide();
+            if (!(bool)izmenaLicnihInfo.ShowDialog())
+            {
+                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(korisnikZaIzmenu.Email));
+
+                Util.Instance.Korisnici[index] = korisnikZaIzmenu;
+
+            }
+            this.Show();
+            view .Refresh();
 
         }
 
   
-        private void BrisanjeP_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void DGPolaznici_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if (e.PropertyName.Equals("Aktivan"))
@@ -355,8 +386,8 @@ namespace SR22_2020_POP2021
 
         private void odjava_Click(object sender, RoutedEventArgs e)
         {
-            var mv = new MainWindow();
-            mv.Show();
+            var mainWin = new MainWindow();
+            mainWin.Show();
             this.Close();
         }
     }

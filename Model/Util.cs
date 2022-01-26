@@ -98,6 +98,10 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
         {
             treningService.RezervisiTrening(id);
         }
+        public void OtkazivanjeTreninga(int id)
+        {
+            treningService.OtkaziTrening(id);
+        }
 
         //public void izmena(Object obj)
         //{

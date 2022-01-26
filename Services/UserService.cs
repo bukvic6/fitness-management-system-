@@ -33,8 +33,8 @@ namespace SR22_2020_POP2021.Services
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"insert into dbo.Korisnici(Ime, Prezime, TipKorisnika,Email,Aktivan,Lozinka,JMBG,Ulica,Broj,Drzava,Grad) 
-                        output inserted.id VALUES(@ime,@prezime,@TipKorisnika,@Email,@Aktivan,@Lozinka,@JMBG,@Ulica,@Broj,@Drzava,@Grad)";
+                command.CommandText = @"insert into dbo.Korisnici(Ime, Prezime, TipKorisnika,Email,Aktivan,Lozinka,JMBG,Ulica,Broj,Drzava,Grad,Pol) 
+                        output inserted.id VALUES(@ime,@prezime,@TipKorisnika,@Email,@Aktivan,@Lozinka,@JMBG,@Ulica,@Broj,@Drzava,@Grad,@Pol)";
                 command.Parameters.Add(new SqlParameter("Ime", korisnik.Ime));
                 command.Parameters.Add(new SqlParameter("Prezime", korisnik.Prezime));
                 command.Parameters.Add(new SqlParameter("TipKorisnika", korisnik.TipKorisnika.ToString()));
@@ -46,6 +46,7 @@ namespace SR22_2020_POP2021.Services
                 command.Parameters.Add(new SqlParameter("Broj", korisnik.Adresa.Broj));
                 command.Parameters.Add(new SqlParameter("Drzava", korisnik.Adresa.Drzava));
                 command.Parameters.Add(new SqlParameter("Grad", korisnik.Adresa.Grad));
+                command.Parameters.Add(new SqlParameter("Pol", korisnik.Pol.ToString()));
 
 
 

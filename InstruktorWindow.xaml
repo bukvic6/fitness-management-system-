@@ -18,6 +18,8 @@
         <Label Background="Bisque" Content="Licne Informacije" HorizontalAlignment="Center" Margin="0,264,0,0" VerticalAlignment="Top"/>
         <Button Background="BlanchedAlmond" Content="Obrisi trening" Name="BrisanjeTreninga" Click="BrisanjeTreninga_Click" HorizontalAlignment="Left" Margin="155,66,0,0" VerticalAlignment="Top"/>
         <Button Content="Odjavite se" Click="Objava_Click" HorizontalAlignment="Left" Margin="465,464,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="IzmenaLicnihInfo" Content="Izmeni informacije" Click="IzmenaLicnihInfo_Click" HorizontalAlignment="Left" Margin="300,354,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="DodajTrening" Click="DodajTrening_Click" Content="DodajTrening" HorizontalAlignment="Left" Margin="70,67,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

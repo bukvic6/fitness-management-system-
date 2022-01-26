@@ -32,8 +32,8 @@ namespace SR22_2020_POP2021
 
             this.DataContext = instruktor;
 
-            ComboTip.ItemsSource = Enum.GetValues(typeof(ETipKorisnika)).Cast<ETipKorisnika>();
-            ComboPol.ItemsSource = Enum.GetValues(typeof(EPol)).Cast<EPol>();
+            
+           ComboPol.ItemsSource = Enum.GetValues(typeof(EPol)).Cast<EPol>();
             
 
             
@@ -59,8 +59,13 @@ namespace SR22_2020_POP2021
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
+            //ComboBoxItem selektovaniItem = (ComboBoxItem)ComboPol.SelectedItem;
+            //string value = selektovaniItem.Content.ToString();
+            
+            Enum.TryParse(ComboPol.Text, out EPol pol);
             if (odabraniStatus.Equals(EStatus.DODAJ))
             {
+
                 Adresa adresa = new Adresa
                 {
 
@@ -70,7 +75,7 @@ namespace SR22_2020_POP2021
                     Grad = txtGrad.Text,
                 };
 
-                RegistrovaniKorisnik k = new RegistrovaniKorisnik(txtIme.Text, txtPrezime.Text, txtJmbg.Text, txtEmail.Text, txtLozinka.Text, ETipKorisnika.INSTRUKTOR,EPol.DRUGO, adresa);
+                RegistrovaniKorisnik k = new RegistrovaniKorisnik(txtIme.Text, txtPrezime.Text, txtJmbg.Text, txtEmail.Text, txtLozinka.Text, ETipKorisnika.INSTRUKTOR,pol, adresa);
 
 
                 Util.Instance.Korisnici.Add(k);
@@ -100,7 +105,9 @@ namespace SR22_2020_POP2021
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"update dbo.Korisnici set  Ime= '" + this.txtIme.Text + "' ,Prezime= '" + this.txtPrezime.Text + "',Lozinka= '" + this.txtLozinka.Text + "' where Id=" + korisnik.Id + ";";
+                command.CommandText = @"update dbo.Korisnici set  Ime= '" + this.txtIme.Text + "' ,Prezime= '" + this.txtPrezime.Text + "',Lozinka= '" +
+                    this.txtLozinka.Text + "' ,Email= '" + this.txtEmail.Text + "' ,Ulica= '" + this.txtUlica.Text + 
+                    "' ,Broj= '" + this.txtBroj.Text + "' ,Drzava= '" + this.txtDrzava.Text + "' ,Grad= '" + this.txtGrad.Text + "' where Id=" + korisnik.Id + ";";
                 // command.ExecuteScalar();
 
                 return (int)command.ExecuteNonQuery();

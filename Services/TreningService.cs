@@ -49,6 +49,17 @@ namespace SR22_2020_POP2021.Services
             trening.PolaznikJmbg = Util.Instance.jmbgPrijavljen7;
             IzmeniTreningZaRezervaciju(trening);
         }
+        public void OtkaziTrening(int id)
+        {
+            Trening trening = Util.Instance.Treninzi.ToList().Find(tr => tr.Id.Equals(id));
+            if (trening == null)
+            {
+                throw new UserNotFoundExeption($"Ne postoji");
+            }
+            trening.StatusTreninga = EStatusTreninga.SLOBODAN;
+            trening.PolaznikJmbg = " ";
+            IzmeniTreningZaRezervaciju(trening);
+        }
 
 
         public void IzmeniTreningZaRezervaciju(object obj)
@@ -109,13 +120,14 @@ namespace SR22_2020_POP2021.Services
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"insert into dbo.Trening(datumTreninga,vremePocetka,trajanjeTreninga,statusTreninga,jmbgInstruktora,aktivan)
-output inserted.id VALUES(@datumTreninga,@vremePocetka,@trajanjeTreninga,@statusTreninga,@jmbgInstruktora,@aktivan)";
+                command.CommandText = @"insert into dbo.Trening(datumTreninga,vremePocetka,trajanjeTreninga,statusTreninga,jmbgInstruktora,jmbgPolaznika,aktivan)
+output inserted.id VALUES(@datumTreninga,@vremePocetka,@trajanjeTreninga,@statusTreninga,@jmbgInstruktora,@jmbgPolaznika, @aktivan)";
                 command.Parameters.Add(new SqlParameter("datumTreninga", trening.Datum));
                 command.Parameters.Add(new SqlParameter("vremePocetka", trening.VremeTreninga));
                 command.Parameters.Add(new SqlParameter("trajanjeTreninga", trening.TrajanjeTreninga));
                 command.Parameters.Add(new SqlParameter("statusTreninga", trening.StatusTreninga.ToString()));
                 command.Parameters.Add(new SqlParameter("jmbgInstruktora", trening.InstruktorJmbg));
+                command.Parameters.Add(new SqlParameter("jmbgPolaznika", trening.PolaznikJmbg = " "));
                 command.Parameters.Add(new SqlParameter("aktivan", trening.Aktivan));
 
 

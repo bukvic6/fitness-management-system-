@@ -21,11 +21,14 @@ namespace SR22_2020_POP2021
 
     {
         private ICollectionView view;
-
+        private ICollectionView view2;
+        private ICollectionView view3;
         public PolaznikWindow()
         {
             InitializeComponent();
             UpdateView();
+            UpdateView2();
+            UpdateView3();
         }
         private void UpdateView()
         {
@@ -38,8 +41,6 @@ namespace SR22_2020_POP2021
 
             view.Filter = CustomFilter;
             view.Refresh();
-
-
         }
 
         private bool CustomFilter(Object obj)
@@ -54,6 +55,55 @@ namespace SR22_2020_POP2021
 
             return false;
         }
+        private void UpdateView2()
+        {
+            DGPolaznici.ItemsSource = null;
+            view2 = new CollectionViewSource { Source = Util.Instance.Korisnici }.View;
+            view2.Filter = CustomFilter2;
+            view2.Refresh();
+            DGPolaznici.IsSynchronizedWithCurrentItem = true;
+            DGPolaznici.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            DGPolaznici.ItemsSource = view2;
+
+
+
+        }
+        private bool CustomFilter2(Object obj)
+        {
+            RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
+
+            if (korisnik.JMBG.Equals(Util.Instance.jmbgPrijavljen7))
+            {
+                return true;
+            }
+            return false;
+        }
+        private void UpdateView3()
+        {
+            DGTreninzi.ItemsSource = null;
+
+            view3 = new CollectionViewSource { Source = Util.Instance.Treninzi }.View;
+            DGTreninzi.ItemsSource = view3;
+            DGTreninzi.IsSynchronizedWithCurrentItem = true;
+            DGTreninzi.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+
+            view3.Filter = CustomFilter3;
+            view3.Refresh();
+
+
+        }
+        private bool CustomFilter3(Object obj)
+        {
+            Trening trening = obj as Trening;
+
+            if (trening.PolaznikJmbg.Equals(Util.Instance.jmbgPrijavljen7))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
 
         private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
@@ -117,9 +167,53 @@ namespace SR22_2020_POP2021
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Odjava_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWin = new MainWindow();
+            mainWin.Show();
+            this.Close();
+
+        }
+        private void IzmenaLicnihInfo_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrovaniKorisnik korisnikZaIzmenu = view2.CurrentItem as RegistrovaniKorisnik;
+
+            RegistrovaniKorisnik stariKorisnik = korisnikZaIzmenu.Clone();
+
+            IzmenaLicnihInfoWindow izmenaLicnihInfo = new IzmenaLicnihInfoWindow(korisnikZaIzmenu);
+            this.Hide();
+            if (!(bool)izmenaLicnihInfo.ShowDialog())
+            {
+                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(korisnikZaIzmenu.Email));
+
+                Util.Instance.Korisnici[index] = korisnikZaIzmenu;
+
+            }
+            this.Show();
+            view2.Refresh();
+
+        }
+        private void OtkaziTrening_Click(object sender, RoutedEventArgs e)
+        {
+            Trening treningZaOtkazivanje = view3.CurrentItem as Trening;
+            Util.Instance.OtkazivanjeTreninga(treningZaOtkazivanje.Id);
+
+            int index = Util.Instance.Treninzi.ToList().FindIndex(tr => tr.Id.Equals(treningZaOtkazivanje.Id));
+            Util.Instance.Treninzi[index].StatusTreninga = EStatusTreninga.SLOBODAN;
+            Util.Instance.Treninzi[index].PolaznikJmbg = " ";
+            view3.Refresh();
+
+        }
+
+        private void DGPolaznici_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
 
         }
+        private void DGTreninzi_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+
+        }
+
+
     }
 }
