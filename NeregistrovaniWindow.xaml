@@ -15,8 +15,7 @@
         <DataGrid CanUserAddRows="False" Name="DGInstruktori" AutoGeneratingColumn ="DGInstruktori_AutoGeneratingColumn" HorizontalAlignment="Left" Height="81" Margin="73,171,0,0" VerticalAlignment="Top" Width="472"/>
         <Label Content="Instruktori" HorizontalAlignment="Left" Margin="371,148,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="PretragaB" HorizontalAlignment="Left" Margin="135,274,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="pretrazi" HorizontalAlignment="Left" Margin="260,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Background="BlanchedAlmond" x:Name="PretraziKlik" Click="PretraziKlik_Click" Content="Pretrazi" HorizontalAlignment="Left" Width="200" VerticalAlignment="Top" Margin="160,329,0,0"/>
+        <TextBox PreviewKeyUp="pretrazi_PreviewKeyUp" x:Name="pretrazi" HorizontalAlignment="Left" Margin="260,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
 
 

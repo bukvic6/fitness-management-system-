@@ -27,7 +27,10 @@ namespace SR22_2020_POP2021
         {
             InitializeComponent();
             UpdateView();
-            
+            view.Filter = CustomFilter;
+            PretragaB.Items.Add("Pretrazi po Imenu");
+            PretragaB.Items.Add("Pretrazi po Prezimenu");
+
         }
 
         private void UpdateView()
@@ -39,8 +42,34 @@ namespace SR22_2020_POP2021
 
             DGInstruktori.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-           
+            DGInstruktori.SelectedItems.Clear();
 
+        }
+        private bool CustomFilter(Object obj)
+        {
+            RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
+
+            if (!korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR) && korisnik.Aktivan)
+            {
+                if (PretragaB.SelectedIndex == 0)
+                {
+                    return korisnik.Ime.Contains(pretrazi.Text);
+                }
+                else if (PretragaB.SelectedIndex == 1)
+                {
+
+                    return korisnik.Prezime.Contains(pretrazi.Text);
+                }
+
+
+                else
+                    return true;
+
+
+
+            }
+
+            return false;
         }
 
 
@@ -77,14 +106,11 @@ namespace SR22_2020_POP2021
 
         }
 
-        private void txtPretraga_PreviewKeyUp(object sender, KeyEventArgs e)
+        private void pretrazi_PreviewKeyUp(object sender, KeyEventArgs e)
         {
+            view.Refresh();
 
         }
 
-        private void PretraziKlik_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

@@ -150,14 +150,14 @@ namespace SR22_2020_POP2021
 
             }
             this.Show();
-            view.Refresh();
+            view2.Refresh();
 
         }
 
         private void DodajTrening_Click(object sender, RoutedEventArgs e)
         {
             DodajTreningWindow treningWindow = new DodajTreningWindow();
-           
+            this.Hide();
             treningWindow.Show();
 
         }
