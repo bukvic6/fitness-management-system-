@@ -48,10 +48,6 @@ namespace SR22_2020_POP2021
                     adminWindow.Show();
 
                     break;
-                  
-
-                    
-
                 }
                 else if (k.JMBG == txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.INSTRUKTOR)
                 {
@@ -62,7 +58,6 @@ namespace SR22_2020_POP2021
                     instruktWindow.Show();
 
                     break;
-
                 }
                 else if (k.JMBG == txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.POLAZNIK)
                 {
@@ -73,44 +68,8 @@ namespace SR22_2020_POP2021
                     polaznikWindow.Show();
 
                     break;
-
-
-
-
                 }
-
-
-
-
-            }
-            //using (StreamReader file = new StreamReader(@"../../Resources/korisnici.txt"))
-            //{
-            //    string line;
-
-            //    while ((line = file.ReadLine()) != null)
-            //    {
-            //        string[] korisnikIzFajla = line.Split(';');
-
-            //        Enum.TryParse(korisnikIzFajla[6], out ETipKorisnika tip);
-
-            //        string Lozinka = korisnikIzFajla[3];
-            //        string JMBG = korisnikIzFajla[4];
-            //        string TipKorisnika = korisnikIzFajla[7];
-
-            //        if (txtJMBG.Text.Trim() == JMBG && txtLozinka.Password.ToString() == Lozinka && TipKorisnika == ETipKorisnika.INSTRUKTOR.ToString())
-            //        {
-            //            MessageBox.Show("Instruktor");
-            //            break;
-            //        }
-            //        else if (txtJMBG.Text.Trim() == JMBG && txtLozinka.Password.ToString() == Lozinka && TipKorisnika == ETipKorisnika.ADMINISTRATOR.ToString())
-            //        {
-            //            AdminWindow adminWindow = new AdminWindow();
-            //            this.Hide();
-            //            adminWindow.Show();
-
-            //        }
-            //    }
-            //}
+            }  
         }
     }
 }

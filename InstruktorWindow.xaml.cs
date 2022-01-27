@@ -27,6 +27,7 @@ namespace SR22_2020_POP2021
         {
             InitializeComponent();
             UpdateView();
+            view.Filter = CustomFilter;
             UpdateView2();
         }
         private void UpdateView()
@@ -39,8 +40,8 @@ namespace SR22_2020_POP2021
             DGTreninzi.IsSynchronizedWithCurrentItem = true;
             DGTreninzi.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            view.Filter = CustomFilter;
-            view.Refresh();
+
+            DGTreninzi.SelectedItems.Clear();
 
 
         }
@@ -74,10 +75,15 @@ namespace SR22_2020_POP2021
         {
             Trening trening = obj as Trening;
 
-            if (trening.InstruktorJmbg.Equals(Util.Instance.jmbgPrijavljen7))
+            if (trening.InstruktorJmbg.Equals(Util.Instance.jmbgPrijavljen7) && trening.Aktivan)
             {
 
-                return true;
+                if (pretrazi.Text != "")
+                {
+                    return trening.Datum.ToString().Contains(pretrazi.Text);
+                }
+                else
+                    return true;
             }
             return false;
         }
@@ -159,6 +165,11 @@ namespace SR22_2020_POP2021
             DodajTreningWindow treningWindow = new DodajTreningWindow();
             this.Hide();
             treningWindow.Show();
+
+        }
+        private void pretrazi_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            view.Refresh();
 
         }
     }

@@ -22,7 +22,7 @@
         <DataGrid CanUserAddRows="False" x:Name="GDTreninzi" AutoGeneratingColumn="GDTreninzi_AutoGeneratingColumn" HorizontalAlignment="Center" Height="129" Margin="0,263,0,0" VerticalAlignment="Top" Width="576"/>
         <Button FontSize="20" FontFamily="times new roman" Content="Obrisi trening" Click="ObrisiTrening_Click" HorizontalAlignment="Left" Margin="455,405,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="PretragaB" HorizontalAlignment="Left" Margin="245,202,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox PreviewKeyUp="pretrazi_PreviewKeyUp" x:Name="pretrazi" HorizontalAlignment="Left" Margin="371,204,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox PreviewKeyUp="pretrazi_PreviewKeyUp" x:Name="pretrazi" HorizontalAlignment="Left" Margin="371,204,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button FontSize="20" FontFamily="times new roman" Name="odjava" Click="odjava_Click" Content="Odjavite se" HorizontalAlignment="Left" Margin="660,684,0,0" VerticalAlignment="Top"/>
 
 

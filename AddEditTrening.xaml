@@ -22,10 +22,9 @@
         <TextBox x:Name="vreme" HorizontalAlignment="Center" Margin="0,201,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Background="GhostWhite" Content="Trajanje treninga u min" HorizontalAlignment="Left" Margin="54,270,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Trajanje" HorizontalAlignment="Center" Margin="0,274,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Background="GhostWhite" Content="Jmbg instruktora" HorizontalAlignment="Left" Margin="68,335,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="JmbgInstr" HorizontalAlignment="Left" Margin="243,340,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Cancel" Click="Cancel_Click" HorizontalAlignment="Left" Margin="249,399,0,0" VerticalAlignment="Top"/>
         <Button Content="Dodeli" Click="Dodaj_Click" HorizontalAlignment="Left" Margin="118,399,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="instruktoriZaRez" AutoGeneratingColumn="instruktoriZaRez_AutoGeneratingColumn" Margin="379,159,15,20"/>
 
     </Grid>
 </Window>

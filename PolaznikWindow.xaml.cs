@@ -214,6 +214,11 @@ namespace SR22_2020_POP2021
         }
         private void DGTreninzi_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
+            if (e.PropertyName.Equals("PolaznikJmbg"))
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+
+            }
 
         }
 
