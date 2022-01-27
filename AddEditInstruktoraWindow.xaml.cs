@@ -65,6 +65,12 @@ namespace SR22_2020_POP2021
             Enum.TryParse(ComboPol.Text, out EPol pol);
             if (odabraniStatus.Equals(EStatus.DODAJ))
             {
+                if (txtIme.Text == "" || txtPrezime.Text == "" || txtJmbg.Text == "" || txtGrad.Text == ""
+|| txtBroj.Text == "" || txtLozinka.Text == "" || txtDrzava.Text == "" || txtEmail.Text == "" || txtUlica.Text == "")
+                {
+                    MessageBox.Show("Morate uneti sve podatke");
+                    return;
+                }
 
                 Adresa adresa = new Adresa
                 {

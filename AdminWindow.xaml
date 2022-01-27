@@ -16,14 +16,13 @@
         <DataGrid CanUserAddRows="False" Name="DGInstruktori" AutoGeneratingColumn="DGInstruktori_AutoGeneratingColumn" HorizontalAlignment="Center" Height="151" Margin="0,37,0,0" VerticalAlignment="Top" Width="576" />
         <Button FontSize="20" FontFamily="times new roman" Content="Brisanje" Click="Brisanje_Click" HorizontalAlignment="Left" Margin="347,10,0,0" VerticalAlignment="Top" Width="75"/>
 
-        <Button Content="Izmena licnih informacija" Click="IzmenaP_Click" HorizontalAlignment="Center" Margin="0,649,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Izmena licnih informacija" Click="IzmenaP_Click" HorizontalAlignment="Center" Margin="0,649,0,0" VerticalAlignment="Top" Width="182"/>
         <Button FontSize="20" FontFamily="times new roman" Content="Dodaj novi"  Click="BP_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="139" Margin="245,404,0,0"/>
         <DataGrid CanUserAddRows="False" Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Center" Height="47" Margin="0,557,0,0" VerticalAlignment="Top" Width="584"/>
         <DataGrid CanUserAddRows="False" x:Name="GDTreninzi" AutoGeneratingColumn="GDTreninzi_AutoGeneratingColumn" HorizontalAlignment="Center" Height="129" Margin="0,263,0,0" VerticalAlignment="Top" Width="576"/>
         <Button FontSize="20" FontFamily="times new roman" Content="Obrisi trening" Click="ObrisiTrening_Click" HorizontalAlignment="Left" Margin="455,405,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="PretragaB" HorizontalAlignment="Left" Margin="245,202,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox PreviewKeyUp="pretrazi_PreviewKeyUp" x:Name="pretrazi" HorizontalAlignment="Left" Margin="371,204,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <!--<Button FontSize="20" FontFamily="times new roman" x:Name="PretraziKlik" Click="PretraziKlik_Click" Content="Pretrazi" HorizontalAlignment="Left" Margin="537,197,0,0" VerticalAlignment="Top"/>-->
         <Button FontSize="20" FontFamily="times new roman" Name="odjava" Click="odjava_Click" Content="Odjavite se" HorizontalAlignment="Left" Margin="660,684,0,0" VerticalAlignment="Top"/>
 
 

@@ -33,7 +33,8 @@ namespace SR22_2020_POP2021
             this.odabraniInstruktor = instruktor;
             
             UpdateView();
-            
+            view.Filter = CustomFilter;
+
         }
         
         private void UpdateView()
@@ -44,11 +45,7 @@ namespace SR22_2020_POP2021
             GDTreninzi.ItemsSource = view;
             GDTreninzi.IsSynchronizedWithCurrentItem = true;
             GDTreninzi.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
-
-            view.Filter = CustomFilter;
-            view.Refresh();
-
-
+            GDTreninzi.SelectedItems.Clear();
         }
         private bool CustomFilter(Object obj)
 
@@ -56,7 +53,7 @@ namespace SR22_2020_POP2021
             
             Trening trening = obj as Trening;
 
-            if (trening.InstruktorJmbg == odabraniInstruktor.JMBG)
+            if (trening.InstruktorJmbg == odabraniInstruktor.JMBG )
             {
                 return true;
             }
@@ -72,11 +69,18 @@ namespace SR22_2020_POP2021
         private void Rezervacija_Click(object sender, RoutedEventArgs e)
         {
             Trening treningZaRezervaciju = view.CurrentItem as Trening;
+            if(treningZaRezervaciju.StatusTreninga == EStatusTreninga.REZERVISAN)
+            {
+                MessageBox.Show("Trening je vec rezervisan");
+                return;
+            }
             Util.Instance.RezervacijaTreninga(treningZaRezervaciju.Id);
 
             int index = Util.Instance.Treninzi.ToList().FindIndex(tr => tr.Id.Equals(treningZaRezervaciju.Id));
             Util.Instance.Treninzi[index].StatusTreninga = EStatusTreninga.REZERVISAN;
             Util.Instance.Treninzi[index].PolaznikJmbg = Util.Instance.jmbgPrijavljen7;
+            view.Refresh();
+            GDTreninzi.SelectedItems.Clear();
 
 
         }
@@ -84,6 +88,7 @@ namespace SR22_2020_POP2021
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
 
         }
     }

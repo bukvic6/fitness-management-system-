@@ -37,7 +37,11 @@ namespace SR22_2020_POP2021
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-
+            if (vreme.Text == "" || Trajanje.Text == "" || JmbgInstr.Text == "")
+            {
+                MessageBox.Show("Morate uneti sve podatke");
+                return;
+            }
             Trening trening = new Trening(DatePicker.SelectedDate.Value.Date,vreme.Text,Trajanje.Text,JmbgInstr.Text,EStatusTreninga.SLOBODAN);
 
             Util.Instance.Treninzi.Add(trening);

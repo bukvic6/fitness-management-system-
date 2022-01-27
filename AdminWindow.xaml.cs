@@ -33,7 +33,9 @@ namespace SR22_2020_POP2021
             UpdateView();
             view.Filter = CustomFilter;
             UpdateView2();
+            view2.Filter = CustomFilter2;
             UpdateView3();
+            view3.Filter = CustomFilter3;
             PretragaB.Items.Add("Pretrazi po Imenu");
             PretragaB.Items.Add("Pretrazi po Prezimenu");
             PretragaB.Items.Add("Pretrazi po Emailu");
@@ -61,12 +63,13 @@ namespace SR22_2020_POP2021
         {
             DGPolaznici.ItemsSource = null;
             view2 = new CollectionViewSource { Source = Util.Instance.Korisnici}.View;
-            view2.Filter = CustomFilter2;
-            view2.Refresh();
+            DGPolaznici.ItemsSource = view2;
+            // view2.Refresh();
             DGPolaznici.IsSynchronizedWithCurrentItem = true;
             DGPolaznici.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
             DGPolaznici.ItemsSource = view2;
-            
+            DGPolaznici.SelectedItems.Clear();
+
 
 
         }
@@ -74,11 +77,10 @@ namespace SR22_2020_POP2021
         {
             GDTreninzi.ItemsSource = null;
             view3 = new CollectionViewSource { Source = Util.Instance.Treninzi }.View;
-            view3.Filter = CustomFilter3;
-            view3.Refresh();
             GDTreninzi.IsSynchronizedWithCurrentItem = true;
             GDTreninzi.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
             GDTreninzi.ItemsSource = view3;
+            GDTreninzi.SelectedItems.Clear();
 
 
 
@@ -112,31 +114,31 @@ namespace SR22_2020_POP2021
 
             if (!korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR) && korisnik.Aktivan)
             {
-                if (PretragaB.SelectedIndex == 0)
+                if (PretragaB.SelectedIndex == 0 && !korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR) && korisnik.Aktivan)
                 {
                     return korisnik.Ime.Contains(pretrazi.Text);
                 }
-                else if (PretragaB.SelectedIndex == 1) {
+                else if (PretragaB.SelectedIndex == 1 && !korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR) && korisnik.Aktivan) {
 
                     return korisnik.Prezime.Contains(pretrazi.Text);
                 }
-                else if (PretragaB.SelectedIndex == 2)
+                else if (PretragaB.SelectedIndex == 2 && !korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR) && korisnik.Aktivan)
                 {
 
                     return korisnik.Email.Contains(pretrazi.Text);
 
                 }
-                else if (PretragaB.SelectedIndex == 3)
+                else if (PretragaB.SelectedIndex == 3 && !korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR) && korisnik.Aktivan)
                 {
 
                     return korisnik.TipKorisnika.ToString().Contains(pretrazi.Text);
                 }
-                else if (PretragaB.SelectedIndex == 4)
+                else if (PretragaB.SelectedIndex == 4 && !korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR) && korisnik.Aktivan)
                 {
 
                     return korisnik.Adresa.Ulica.Contains(pretrazi.Text);
                 }
-                else if (PretragaB.SelectedIndex == 5)
+                else if (PretragaB.SelectedIndex == 5 && !korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR) && korisnik.Aktivan)
                 {
 
                     return korisnik.Adresa.Grad.Contains(pretrazi.Text);
@@ -280,20 +282,6 @@ namespace SR22_2020_POP2021
             view3.Refresh();
 
         }
-
-        private void Prezime_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //private void PretraziKlik_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //view.Filter = CustomFilterPretraga;
-        //    view.Refresh();
-
-
-        //}
-
         private void odjava_Click(object sender, RoutedEventArgs e)
         {
             var mainWin = new MainWindow();

@@ -27,8 +27,11 @@ namespace SR22_2020_POP2021
         {
             InitializeComponent();
             UpdateView();
+            view.Filter = CustomFilter;
             UpdateView2();
+            view2.Filter = CustomFilter2;
             UpdateView3();
+            view3.Filter = CustomFilter3;
         }
         private void UpdateView()
         {
@@ -39,8 +42,8 @@ namespace SR22_2020_POP2021
             DGInstruktori.IsSynchronizedWithCurrentItem = true;
             DGInstruktori.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            view.Filter = CustomFilter;
-            view.Refresh();
+
+            DGPolaznici.SelectedItems.Clear();
         }
 
         private bool CustomFilter(Object obj)
@@ -59,11 +62,10 @@ namespace SR22_2020_POP2021
         {
             DGPolaznici.ItemsSource = null;
             view2 = new CollectionViewSource { Source = Util.Instance.Korisnici }.View;
-            view2.Filter = CustomFilter2;
-            view2.Refresh();
             DGPolaznici.IsSynchronizedWithCurrentItem = true;
             DGPolaznici.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
             DGPolaznici.ItemsSource = view2;
+            DGPolaznici.SelectedItems.Clear();
 
 
 
@@ -83,12 +85,12 @@ namespace SR22_2020_POP2021
             DGTreninzi.ItemsSource = null;
 
             view3 = new CollectionViewSource { Source = Util.Instance.Treninzi }.View;
-            DGTreninzi.ItemsSource = view3;
+            
             DGTreninzi.IsSynchronizedWithCurrentItem = true;
             DGTreninzi.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            DGTreninzi.ItemsSource = view3;
 
-            view3.Filter = CustomFilter3;
-            view3.Refresh();
+            DGTreninzi.SelectedItems.Clear();
 
 
         }
@@ -152,7 +154,7 @@ namespace SR22_2020_POP2021
 
 
             RezervisiTrening addEditInstruktoraWindow = new RezervisiTrening(trenutniInstruktor);
-            this.Hide();
+            
             if (!(bool)addEditInstruktoraWindow.ShowDialog())
             {
                 int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.JMBG.Equals(trenutniInstruktor.JMBG));
@@ -186,11 +188,12 @@ namespace SR22_2020_POP2021
             {
                 int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(korisnikZaIzmenu.Email));
 
-                Util.Instance.Korisnici[index] = korisnikZaIzmenu;
+                Util.Instance.Korisnici[index] = stariKorisnik;
 
             }
             this.Show();
             view2.Refresh();
+
 
         }
         private void OtkaziTrening_Click(object sender, RoutedEventArgs e)

@@ -34,7 +34,6 @@ namespace SR22_2020_POP2021
         private void BtnRegistracija_Click(object sender, RoutedEventArgs e)
         {
             RegistrationWindow1 registrationWindow = new RegistrationWindow1();
-            this.Hide();
             registrationWindow.Show();
                 
         }

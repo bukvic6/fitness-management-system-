@@ -33,6 +33,16 @@ namespace SR22_2020_POP2021
 
         private void BtnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
+            if (txtIme.Text == "" || txtPrezime.Text == "" || txtJmbg.Text == "" || txtGrad.Text == ""
+    || txtBroj.Text == "" || txtPassword.Text == "" || txtDrzava.Text == "" || txtEmail.Text == "" || txtUlica.Text == "")
+            {
+                MessageBox.Show("Morate uneti sve podatke");
+                return;
+            }
+
+
+
+
             ComboBoxItem selektovaniItem = (ComboBoxItem)cmbPol.SelectedItem;
             string value = selektovaniItem.Content.ToString();
             Enum.TryParse(value, out EPol pol);
@@ -61,6 +71,7 @@ namespace SR22_2020_POP2021
 
         private void BtnOdustani_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
 
         }
 
