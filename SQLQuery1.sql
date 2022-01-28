@@ -1,2 +1,2 @@
-﻿Update [dbo].[Korisnici]
-set aktivan = 'true' where ime like 'jova'
+﻿update [dbo].[Trening]
+set aktivan = 'true' 

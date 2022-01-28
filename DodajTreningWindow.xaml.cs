@@ -43,6 +43,11 @@ namespace SR22_2020_POP2021
                 MessageBox.Show("Morate uneti sve podatke");
                 return;
             }
+            if (vreme.Text.Contains(":"))
+            {
+                MessageBox.Show("Morate uneti validan format za vreme 00:00");
+                return;
+            }
             Util.Instance.Treninzi.Add(trening);
             Util.Instance.SacuvajEntitet(trening);
             this.Close();

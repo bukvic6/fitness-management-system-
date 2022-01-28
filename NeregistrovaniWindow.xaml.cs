@@ -30,6 +30,9 @@ namespace SR22_2020_POP2021
             view.Filter = CustomFilter;
             PretragaB.Items.Add("Pretrazi po Imenu");
             PretragaB.Items.Add("Pretrazi po Prezimenu");
+            PretragaB.Items.Add("Pretrazi po Emailu");
+            PretragaB.Items.Add("Pretrazi po Ulici");
+            PretragaB.Items.Add("Pretrazi po Gradu");
 
         }
 
@@ -60,6 +63,22 @@ namespace SR22_2020_POP2021
 
                     return korisnik.Prezime.Contains(pretrazi.Text);
                 }
+                else if (PretragaB.SelectedIndex == 2 )
+                {
+
+                    return korisnik.Email.Contains(pretrazi.Text);
+
+                }               
+                else if (PretragaB.SelectedIndex == 3)
+                {
+
+                    return korisnik.Adresa.Ulica.Contains(pretrazi.Text);
+                }
+                else if (PretragaB.SelectedIndex == 4 )
+                {
+
+                    return korisnik.Adresa.Grad.Contains(pretrazi.Text);
+                }
 
 
                 else
@@ -80,7 +99,6 @@ namespace SR22_2020_POP2021
                 e.ToString();
 
             }
-
 
             if (e.PropertyName.Equals("Aktivan"))
             {

@@ -41,7 +41,7 @@ namespace SR22_2020_POP2021
             }
             if(!txtEmail.Text.Contains("@") && !txtEmail.Text.EndsWith(".com"))
             {
-                MessageBox.Show("Email mora da bude validan");
+                MessageBox.Show("Neispravan format emaila");
                 return;
             }
 

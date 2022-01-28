@@ -60,7 +60,7 @@ namespace SR22_2020_POP2021
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
+            
             this.Close();
 
         }
@@ -76,6 +76,11 @@ namespace SR22_2020_POP2021
             if (vreme.Text == "" || Trajanje.Text == "" )
             {
                 MessageBox.Show("Morate uneti sve podatke");
+                return;
+            }
+            if (vreme.Text.Contains(":"))
+            {
+                MessageBox.Show("Morate uneti validan format za vreme 00:00");
                 return;
             }
             Trening trening = new Trening(DatePicker.SelectedDate.Value.Date,vreme.Text,Trajanje.Text, instruktor.JMBG,EStatusTreninga.SLOBODAN);

@@ -214,6 +214,11 @@ namespace SR22_2020_POP2021
 
         private void DGPolaznici_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
+            if (e.PropertyName.Equals("Aktivan"))
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+
+            }
 
         }
         private void DGTreninzi_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -223,9 +228,12 @@ namespace SR22_2020_POP2021
                 e.Column.Visibility = Visibility.Collapsed;
 
             }
+            if (e.PropertyName.Equals("Aktivan"))
+            {
+                e.Column.Visibility = Visibility.Collapsed;
 
+            }
         }
-
 
     }
 }

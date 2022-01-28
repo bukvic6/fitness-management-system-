@@ -260,6 +260,7 @@ namespace SR22_2020_POP2021
         {
             if (e.PropertyName.Equals("Aktivan"))
             {
+                e.Column.Visibility = Visibility.Collapsed;
 
             }
 

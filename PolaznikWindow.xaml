@@ -14,10 +14,10 @@
 
         <DataGrid CanUserAddRows="False" x:Name="DGInstruktori" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn" HorizontalAlignment="Center" Height="103" Margin="0,92,0,0" VerticalAlignment="Top" Width="204"/>
         <Button FontSize="25" FontFamily="Times new roman" Background="BlanchedAlmond" x:Name="RezervisiTrening" Click="RezervisiTrening_Click" Content="Pregled treninga" HorizontalAlignment="Center" Margin="0,214,0,0" VerticalAlignment="Top"/>
-        <DataGrid Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Center" Height="44" VerticalAlignment="Top" Width="584" Margin="0,470,0,0"/>
+        <DataGrid CanUserAddRows="False" Name="DGPolaznici" AutoGeneratingColumn="DGPolaznici_AutoGeneratingColumn" HorizontalAlignment="Center" Height="44" VerticalAlignment="Top" Width="584" Margin="0,470,0,0"/>
         <Button x:Name="IzmenaLicnihInfo" Content="Izmeni informacije" Click="IzmenaLicnihInfo_Click" HorizontalAlignment="Left" Margin="237,529,0,0" VerticalAlignment="Top"/>
 
-        <DataGrid Name="DGTreninzi" AutoGeneratingColumn="DGTreninzi_AutoGeneratingColumn" HorizontalAlignment="Center" Height="87" VerticalAlignment="Top" Width="584" Margin="0,317,0,0"/>
+        <DataGrid CanUserAddRows="False" Name="DGTreninzi" AutoGeneratingColumn="DGTreninzi_AutoGeneratingColumn" HorizontalAlignment="Center" Height="87" VerticalAlignment="Top" Width="584" Margin="0,317,0,0"/>
 
         <Label Content="Lista nasih instruktora" HorizontalAlignment="Center" Margin="0,64,0,0" VerticalAlignment="Top"/>
         <Button Content="Odjavite se" Click="Odjava_Click" HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Margin="435,569,0,0"/>

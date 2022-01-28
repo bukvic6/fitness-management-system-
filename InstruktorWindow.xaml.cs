@@ -93,6 +93,7 @@ namespace SR22_2020_POP2021
         {
             if (e.PropertyName.Equals("Aktivan"))
             {
+                e.Column.Visibility = Visibility.Collapsed;
 
             }
             if (e.PropertyName.Equals("Adresa"))
@@ -107,7 +108,12 @@ namespace SR22_2020_POP2021
 
         private void DGTreninzi_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-          
+            if (e.PropertyName.Equals("Aktivan"))
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+
+            }
+
 
         }
 
