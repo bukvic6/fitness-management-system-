@@ -37,6 +37,12 @@ namespace SR22_2020_POP2021
 
             Trening trening = new Trening(DatePicker.SelectedDate.Value.Date, vreme.Text, Trajanje.Text, Util.Instance.jmbgPrijavljen7, EStatusTreninga.SLOBODAN);
 
+
+            if (vreme.Text == "" || Trajanje.Text == "")
+            {
+                MessageBox.Show("Morate uneti sve podatke");
+                return;
+            }
             Util.Instance.Treninzi.Add(trening);
             Util.Instance.SacuvajEntitet(trening);
             this.Close();

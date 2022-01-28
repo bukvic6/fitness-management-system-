@@ -33,7 +33,7 @@ namespace SR22_2020_POP2021
             this.odabraniInstruktor = instruktor;
             
             UpdateView();
-            view.Filter = CustomFilter;
+            
 
         }
         
@@ -43,9 +43,11 @@ namespace SR22_2020_POP2021
             //resenje za problem instanciranja grida
             view = new CollectionViewSource { Source = Util.Instance.Treninzi }.View;
             GDTreninzi.ItemsSource = view;
+            view.Filter = CustomFilter;
             GDTreninzi.IsSynchronizedWithCurrentItem = true;
             GDTreninzi.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
             GDTreninzi.SelectedItems.Clear();
+            view.Refresh();
         }
         private bool CustomFilter(Object obj)
 
@@ -53,7 +55,7 @@ namespace SR22_2020_POP2021
             
             Trening trening = obj as Trening;
 
-            if (trening.InstruktorJmbg == odabraniInstruktor.JMBG )
+            if (trening.InstruktorJmbg == odabraniInstruktor.JMBG && trening.Aktivan )
             {
                 return true;
             }
@@ -79,8 +81,15 @@ namespace SR22_2020_POP2021
             int index = Util.Instance.Treninzi.ToList().FindIndex(tr => tr.Id.Equals(treningZaRezervaciju.Id));
             Util.Instance.Treninzi[index].StatusTreninga = EStatusTreninga.REZERVISAN;
             Util.Instance.Treninzi[index].PolaznikJmbg = Util.Instance.jmbgPrijavljen7;
+            UpdateView();
             view.Refresh();
-            GDTreninzi.SelectedItems.Clear();
+            var ip = new PolaznikWindow();
+            ip.Show();
+            this.Close();
+            
+            //view.Refresh();
+           // GDTreninzi.SelectedItems.Clear();
+            
             
 
 
@@ -89,6 +98,8 @@ namespace SR22_2020_POP2021
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            var ip = new PolaznikWindow();
+            ip.Show();
             this.Close();
 
         }

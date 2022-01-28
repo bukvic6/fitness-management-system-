@@ -49,7 +49,7 @@ namespace SR22_2020_POP2021
         {
             RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
 
-            if (!korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR) && korisnik.Aktivan)
+            if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && korisnik.Aktivan)
             {
                 if (PretragaB.SelectedIndex == 0)
                 {

@@ -17,6 +17,7 @@ namespace SR22_2020_POP2021.Services
 
         void IzmeniTreningZaRezervaciju(Object obj);
         void OtkaziTrening(int id);
+        void DeleteTreningii(string jmbg);
     }
 }
 

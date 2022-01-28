@@ -56,7 +56,7 @@ namespace SR22_2020_POP2021
 
             DGInstruktori.SelectedItems.Clear();
             //view.Filter = CustomFilter;
-            view.Refresh();
+           // view.Refresh();
 
 
         }
@@ -68,8 +68,10 @@ namespace SR22_2020_POP2021
             // view2.Refresh();
             DGPolaznici.IsSynchronizedWithCurrentItem = true;
             DGPolaznici.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
-            DGPolaznici.ItemsSource = view2;
+           
             DGPolaznici.SelectedItems.Clear();
+            view2.Filter = CustomFilter2;
+            view2.Refresh();
 
 
 
@@ -82,6 +84,8 @@ namespace SR22_2020_POP2021
             GDTreninzi.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
             GDTreninzi.ItemsSource = view3;
             GDTreninzi.SelectedItems.Clear();
+            view3.Filter = CustomFilter3;
+            view3.Refresh();
 
 
 
@@ -166,14 +170,14 @@ namespace SR22_2020_POP2021
             AddEditInstruktoraWindow addEditInstruktoraWindow = new AddEditInstruktoraWindow(korisnikZaIzmenu, EStatus.IZMENI);
             this.Hide();
             if (!(bool)addEditInstruktoraWindow.ShowDialog()){
-                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(korisnikZaIzmenu.Email));
+                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(stariInstruktor.Email));
                 
                 Util.Instance.Korisnici[index] = stariInstruktor;
                 
             }/**/
             this.Show();
             view.Refresh();
-            DGInstruktori.SelectedItems.Clear();
+           
 
         }
         
@@ -187,11 +191,9 @@ namespace SR22_2020_POP2021
 
            
             view.Refresh();
+            view3.Refresh();
             UpdateView();
-
-
-
-
+            UpdateView3();
         }
 
         private void Dodavanje_Click(object sender, RoutedEventArgs e)
@@ -241,13 +243,14 @@ namespace SR22_2020_POP2021
             this.Hide();
             if (!(bool)izmenaLicnihInfo.ShowDialog())
             {
-                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(korisnikZaIzmenu.Email));
+                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(stariKorisnik.Email));
 
-                Util.Instance.Korisnici[index] = korisnikZaIzmenu;
+                Util.Instance.Korisnici[index] = stariKorisnik;
 
             }
             this.Show();
             view2.Refresh();
+           
             
 
         }

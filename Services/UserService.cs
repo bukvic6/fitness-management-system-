@@ -20,6 +20,13 @@ namespace SR22_2020_POP2021.Services
             {
                 throw new UserNotFoundExeption($"Ne postoji korisnik sa tim emailom");
             }
+            if (registrovaniKorisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR))
+            {
+
+               
+
+                Util.Instance.BrisanjeTreningaii(registrovaniKorisnik.JMBG);
+            }
             registrovaniKorisnik.Aktivan = false;
             IzmeniKorisnika(registrovaniKorisnik);      
             

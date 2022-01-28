@@ -48,7 +48,7 @@ namespace SR22_2020_POP2021
         {
             RegistrovaniKorisnik korisnik = obj as RegistrovaniKorisnik;
 
-            if (!korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR) && korisnik.Aktivan)
+            if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && korisnik.Aktivan)
             {
                     return true;
             }
@@ -68,6 +68,10 @@ namespace SR22_2020_POP2021
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
             RegistrovaniKorisnik instruktor = view.CurrentItem as RegistrovaniKorisnik;
+            if (instruktor == null) {
+                MessageBox.Show("Morate odabrati instruktora");
+                return;
+            }
 
             if (vreme.Text == "" || Trajanje.Text == "" )
             {

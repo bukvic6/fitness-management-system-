@@ -37,9 +37,10 @@ namespace SR22_2020_POP2021
                 return;
 
             }
-            foreach(RegistrovaniKorisnik k in Util.Instance.Korisnici)
+            
+            foreach (RegistrovaniKorisnik k in Util.Instance.Korisnici)
             {
-                if(k.JMBG==txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.ADMINISTRATOR)
+                if(k.JMBG==txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.ADMINISTRATOR && k.Aktivan)
                 {
                     Util.Instance.jmbgPrijavljen7 = k.JMBG;
                    
@@ -49,7 +50,7 @@ namespace SR22_2020_POP2021
 
                     break;
                 }
-                else if (k.JMBG == txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.INSTRUKTOR)
+                else if (k.JMBG == txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.INSTRUKTOR && k.Aktivan)
                 {
                     Util.Instance.jmbgPrijavljen7 = k.JMBG;
 
@@ -59,16 +60,22 @@ namespace SR22_2020_POP2021
 
                     break;
                 }
-                else if (k.JMBG == txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.POLAZNIK)
+                else if (k.JMBG == txtJMBG.Text && k.Lozinka == txtLozinka.Password && k.TipKorisnika == ETipKorisnika.POLAZNIK && k.Aktivan)
                 {
                     Util.Instance.jmbgPrijavljen7 = k.JMBG;
 
                     PolaznikWindow polaznikWindow = new PolaznikWindow();
                     this.Hide();
                     polaznikWindow.Show();
-
+                    
                     break;
                 }
+            
+                
+                
+
+
+
             }  
         }
     }

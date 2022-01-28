@@ -22,7 +22,31 @@ namespace SR22_2020_POP2021.Services
             trening.Aktivan = false;
             IzmeniTrening(trening);
         }
+        public void DeleteTreningii(string jmbgInstruktora)
+        {
+            Trening trening = Util.Instance.Treninzi.ToList().Find(tr => tr.InstruktorJmbg.Equals(jmbgInstruktora));
+            if (trening == null)
+            {
+                throw new UserNotFoundExeption($"Ne postoji");
+            }
+            trening.Aktivan = false;
+            IzmeniTreningii(trening);
+        }
+        public void IzmeniTreningii(object obj)
+        {
+            Trening trening = obj as Trening;
+            using (SqlConnection conn = new SqlConnection(Util.CONNECTION_STRING))
+            {
+                conn.Open();
+                SqlCommand command = conn.CreateCommand();
 
+                command.CommandText = @"update dbo.trening set Aktivan = @Aktivan  where jmbgInstruktora= @jmbgInstruktora";
+                command.Parameters.Add(new SqlParameter("Aktivan", trening.Aktivan));
+                command.Parameters.Add(new SqlParameter("jmbgInstruktora", trening.InstruktorJmbg));
+                command.ExecuteNonQuery();
+
+            }
+        }
         public void IzmeniTrening(object obj)
         {
             Trening trening = obj as Trening;

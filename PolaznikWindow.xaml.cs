@@ -31,7 +31,7 @@ namespace SR22_2020_POP2021
             UpdateView2();
             view2.Filter = CustomFilter2;
             UpdateView3();
-            view3.Filter = CustomFilter3;
+            
         }
         private void UpdateView()
         {
@@ -62,6 +62,8 @@ namespace SR22_2020_POP2021
         {
             DGPolaznici.ItemsSource = null;
             view2 = new CollectionViewSource { Source = Util.Instance.Korisnici }.View;
+            DGPolaznici.ItemsSource = view2;
+            // view2.Refresh();
             DGPolaznici.IsSynchronizedWithCurrentItem = true;
             DGPolaznici.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
             DGPolaznici.ItemsSource = view2;
@@ -91,6 +93,7 @@ namespace SR22_2020_POP2021
             DGTreninzi.ItemsSource = view3;
 
             DGTreninzi.SelectedItems.Clear();
+            view3.Filter = CustomFilter3;
 
 
         }
@@ -98,7 +101,7 @@ namespace SR22_2020_POP2021
         {
             Trening trening = obj as Trening;
 
-            if (trening.PolaznikJmbg.Equals(Util.Instance.jmbgPrijavljen7))
+            if (trening.PolaznikJmbg.Equals(Util.Instance.jmbgPrijavljen7) && trening.Aktivan)
             {
                 return true;
             }
@@ -154,18 +157,19 @@ namespace SR22_2020_POP2021
 
 
             RezervisiTrening addEditInstruktoraWindow = new RezervisiTrening(trenutniInstruktor);
+
+            //if (!(bool)addEditInstruktoraWindow.ShowDialog())
+            //{
+            //    int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.JMBG.Equals(trenutniInstruktor.JMBG));
+
+            //    Util.Instance.Korisnici[index] = trenutniInstruktor;
+
+
+
+            //}
+            this.Close();
+            addEditInstruktoraWindow.Show();
             
-            if (!(bool)addEditInstruktoraWindow.ShowDialog())
-            {
-                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.JMBG.Equals(trenutniInstruktor.JMBG));
-
-                Util.Instance.Korisnici[index] = trenutniInstruktor;
-
-                
-
-            }
-            this.Show();
-            view.Refresh();
 
         }
 
@@ -186,7 +190,7 @@ namespace SR22_2020_POP2021
             this.Hide();
             if (!(bool)izmenaLicnihInfo.ShowDialog())
             {
-                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(korisnikZaIzmenu.Email));
+                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(stariKorisnik.Email));
 
                 Util.Instance.Korisnici[index] = stariKorisnik;
 

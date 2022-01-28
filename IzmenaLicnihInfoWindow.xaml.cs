@@ -41,7 +41,8 @@ namespace SR22_2020_POP2021
 
 
             iZmena(korisnikZaIzmenu);
-
+            this.DialogResult = true;
+           
             this.Close();
 
         }

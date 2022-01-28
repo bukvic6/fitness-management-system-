@@ -39,6 +39,11 @@ namespace SR22_2020_POP2021
                 MessageBox.Show("Morate uneti sve podatke");
                 return;
             }
+            if(!txtEmail.Text.Contains("@") && !txtEmail.Text.EndsWith(".com"))
+            {
+                MessageBox.Show("Email mora da bude validan");
+                return;
+            }
 
 
 

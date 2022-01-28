@@ -94,6 +94,10 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
         {
             treningService.DeleteTrening(id);
         }
+        public void BrisanjeTreningaii(string jmbg)
+        {
+            treningService.DeleteTreningii(jmbg);
+        }
         public void RezervacijaTreninga(int id)
         {
             treningService.RezervisiTrening(id);
@@ -102,6 +106,7 @@ Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate
         {
             treningService.OtkaziTrening(id);
         }
+        
 
         //public void izmena(Object obj)
         //{

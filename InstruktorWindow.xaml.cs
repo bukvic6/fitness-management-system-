@@ -43,7 +43,7 @@ namespace SR22_2020_POP2021
 
 
             DGTreninzi.SelectedItems.Clear();
-            view.Refresh();
+            //view.Refresh();
 
 
         }
@@ -123,14 +123,20 @@ namespace SR22_2020_POP2021
         private void BrisanjeTreninga_Click(object sender, RoutedEventArgs e)
         {
             Trening treningZaBrisanje = view.CurrentItem as Trening;
+            if (treningZaBrisanje.StatusTreninga == EStatusTreninga.REZERVISAN)
+            {
+                MessageBox.Show("Ne mozete brisati rezervisani trening");
+                return;
+            }
             Util.Instance.BrisanjeTreninga(treningZaBrisanje.Id);
 
             int index = Util.Instance.Treninzi.ToList().FindIndex(tr => tr.Id.Equals(treningZaBrisanje.Id));
             Util.Instance.Treninzi[index].Aktivan = false;
 
-            UpdateView();
+            
             view.Refresh();
-            DGTreninzi.SelectedItems.Clear();
+            UpdateView();
+            // DGTreninzi.SelectedItems.Clear();
 
 
 
@@ -155,9 +161,9 @@ namespace SR22_2020_POP2021
             this.Hide();
             if (!(bool)izmenaLicnihInfo.ShowDialog())
             {
-                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(korisnikZaIzmenu.Email));
+                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.Email.Equals(stariKorisnik.Email));
 
-                Util.Instance.Korisnici[index] = korisnikZaIzmenu;
+                Util.Instance.Korisnici[index] = stariKorisnik;
 
             }
             this.Show();

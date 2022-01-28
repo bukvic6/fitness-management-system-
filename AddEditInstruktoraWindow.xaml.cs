@@ -87,7 +87,7 @@ namespace SR22_2020_POP2021
                 Util.Instance.Korisnici.Add(k);
 
                 Util.Instance.SacuvajEntitet(k);
-                this.Close();
+                
 
             }
             else
@@ -100,7 +100,7 @@ namespace SR22_2020_POP2021
 
 
 
-
+            this.DialogResult = true;
             this.Close();
 
         }
