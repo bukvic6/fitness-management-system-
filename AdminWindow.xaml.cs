@@ -31,7 +31,7 @@ namespace SR22_2020_POP2021
         {
             InitializeComponent();
             UpdateView();
-            view.Filter = CustomFilter;
+        
             UpdateView2();
             view2.Filter = CustomFilter2;
             UpdateView3();
@@ -49,13 +49,14 @@ namespace SR22_2020_POP2021
             //https://stackoverflow.com/questions/2160481/wpf-collectionviewsource-multiple-views
             //resenje za problem instanciranja grida
             view = new CollectionViewSource { Source = Util.Instance.Korisnici }.View;
+            view.Filter = CustomFilter;
             DGInstruktori.ItemsSource = view;
             DGInstruktori.IsSynchronizedWithCurrentItem = true;
             DGInstruktori.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
             DGInstruktori.SelectedItems.Clear();
-           // view.Filter = CustomFilter;
-           // view.Refresh();
+            //view.Filter = CustomFilter;
+            view.Refresh();
 
 
         }
@@ -184,8 +185,12 @@ namespace SR22_2020_POP2021
             int index = Util.Instance.Korisnici.ToList().FindIndex(korisnik => korisnik.Email.Equals(korisnikZaBrisanje.Email));
             Util.Instance.Korisnici[index].Aktivan = false;
 
-            UpdateView();
+           
             view.Refresh();
+            UpdateView();
+
+
+
 
         }
 
@@ -201,6 +206,7 @@ namespace SR22_2020_POP2021
             }
             this.Show();
             view.Refresh();
+            DGInstruktori.SelectedItems.Clear();
 
         }
         

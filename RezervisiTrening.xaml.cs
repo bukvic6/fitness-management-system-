@@ -81,6 +81,7 @@ namespace SR22_2020_POP2021
             Util.Instance.Treninzi[index].PolaznikJmbg = Util.Instance.jmbgPrijavljen7;
             view.Refresh();
             GDTreninzi.SelectedItems.Clear();
+            
 
 
         }
